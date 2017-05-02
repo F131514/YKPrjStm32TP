@@ -1,0 +1,8 @@
+
+*.bak
+
+SupportFiles/*
+
+project/*.O
+project/*.D
+project/*.CRF

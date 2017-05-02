@@ -1,0 +1,33 @@
+T38A8 053:327 SEGGER J-Link V4.80g Log File (0000ms, 6586ms total)
+T38A8 053:327 DLL Compiled: Feb 13 2014 20:50:02 (0000ms, 6586ms total)
+T38A8 053:327 Logging started @ 2016-02-27 09:40 (0000ms, 6586ms total)
+T38A8 053:327 JLINK_SetWarnOutHandler(...) (0000ms, 6586ms total)
+T38A8 053:327 JLINK_OpenEx(...)
+Firmware: J-Link ARM V8 compiled Nov 25 2013 19:20:08
+Hardware: V8.00
+S/N: 1701996902
+Feature(s): RDI,FlashDL,FlashBP,JFlash  returns O.K. (0268ms, 6854ms total)
+T38A8 053:595 JLINK_SetErrorOutHandler(...) (0000ms, 6854ms total)
+T38A8 053:596 JLINK_ExecCommand("ProjectFile = "F:\stm32TP\project\JLinkSettings.ini"", ...)  returns 0x00 (0001ms, 6855ms total)
+T38A8 053:597 JLINK_ExecCommand("Device = STM32F030R8", ...)Device "STM32F030R8" selected (64 KB flash, 8 KB RAM).  returns 0x00 (0000ms, 6855ms total)
+T38A8 053:597 JLINK_ExecCommand("DisableConnectionTimeout", ...)  returns 0x01 (0000ms, 6855ms total)
+T38A8 053:597 JLINK_GetHardwareVersion()  returns 0x13880 (0000ms, 6855ms total)
+T38A8 053:597 JLINK_GetDLLVersion()  returns 48007 (0000ms, 6855ms total)
+T38A8 053:597 JLINK_GetFirmwareString(...) (0000ms, 6855ms total)
+T38A8 053:597 JLINK_GetDLLVersion()  returns 48007 (0000ms, 6855ms total)
+T38A8 053:597 JLINK_GetCompileDateTime() (0000ms, 6855ms total)
+T38A8 053:597 JLINK_GetFirmwareString(...) (0000ms, 6855ms total)
+T38A8 053:597 JLINK_GetHardwareVersion()  returns 0x13880 (0000ms, 6855ms total)
+T38A8 053:597 JLINK_TIF_Select(JLINKARM_TIF_JTAG)  returns 0x00 (0006ms, 6861ms total)
+T38A8 053:603 JLINK_SetSpeed(500) (0001ms, 6862ms total)
+T38A8 053:604 JLINK_SetResetType(JLINKARM_RESET_TYPE_NORMAL)  returns JLINKARM_RESET_TYPE_NORMAL (0000ms, 6862ms total)
+T38A8 053:604 JLINK_Reset() >0x2F8 JTAG>Could not measure total IR len. TDO is constant high. >0x30 JTAG>STM32F0xxx: Can not connect to CPU. Trying connect under reset. >0x2F8 JTAG>Could not measure total IR len. TDO is constant high. >0x30 JTAG>
+  ***** Error: STM32F0xxx: Connecting to CPU via connect under reset failed.JLINK_GetIdData(...) >0x2F8 JTAG>Could not measure total IR len. TDO is constant high. >0x30 JTAG>STM32F0xxx: Can not connect to CPU. Trying connect under reset. >0x2F8 JTAG>
+Could not measure total IR len. TDO is constant high. >0x30 JTAG>
+  ***** Error: STM32F0xxx: Connecting to CPU via connect under reset failed. (0112ms, 7086ms total)
+T38A8 053:828 JLINK_GetIdData(...) >0x2F8 JTAG>Could not measure total IR len. TDO is constant high. >0x30 JTAG>STM32F0xxx: Can not connect to CPU. Trying connect under reset. >0x2F8 JTAG>Could not measure total IR len. TDO is constant high. >0x30 JTAG>
+  ***** Error: STM32F0xxx: Connecting to CPU via connect under reset failed. (0112ms, 7198ms total)
+T38A8 053:941 JLINK_GetFirmwareString(...) (0000ms, 7198ms total)
+T38A8 056:428 JLINK_Close() (0001ms, 7199ms total)
+T38A8 056:428  (0001ms, 7199ms total)
+T38A8 056:428 Closed (0001ms, 7199ms total)
