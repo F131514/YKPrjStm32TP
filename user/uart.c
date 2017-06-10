@@ -6,13 +6,13 @@
 #include "uart.h"
 
 //机器型号对应表
-Uint8* const machine_name[3][12] = {
+const Uint8 *machine_name[3][12] = {
 {"SY103","SY113","SY123","SY153","SY163","SY183","SY203","SY213","SY223","SY263","SY303","SY503"},
 {"SY104","SY114","SY124","SY154","SY164","SY184","SY204","SY214","SY224","SY264","SY304","SY504"},
 {"SY105","SY115","SY125","SY155","SY165","SY185","SY205","SY215","SY225","SY265","SY305","SY505"}
 };
 //内校天平
-Uint8* const machine_nameC[3][12] = {
+const Uint8 *machine_nameC[3][12] = {
 {"SY103C","SY113C","SY123C","SY153C","SY163C","SY183C","SY203C","SY213C","SY223C","SY263C","SY303C","SY503C"},
 {"SY104C","SY114C","SY124C","SY154C","SY164C","SY184C","SY204C","SY214C","SY224C","SY264C","SY304C","SY504C"},
 {"SY105C","SY115C","SY125C","SY155C","SY165C","SY185C","SY205C","SY215C","SY225C","SY265C","SY305C","SY505C"}
@@ -76,13 +76,13 @@ void USART_Configuration(void)//串口初始化函数
 					case    4: USART_InitStructure.USART_BaudRate = 9600;break;
           case    5:					
 					default:
-						         USART_InitStructure.USART_BaudRate = 115200;   //设置串口波特率
+						         USART_InitStructure.USART_BaudRate = 9600;   //设置串口波特率
  				             break;
 				}	
         //USART_InitStructure.USART_BaudRate = 9600;//设置串口波特率
-        USART_InitStructure.USART_WordLength = USART_WordLength_9b;//设置数据位
+        USART_InitStructure.USART_WordLength = USART_WordLength_8b;//设置数据位
         USART_InitStructure.USART_StopBits   = USART_StopBits_1;//设置停止位
-        USART_InitStructure.USART_Parity     = USART_Parity_Odd;//设置效验位
+        USART_InitStructure.USART_Parity     = USART_Parity_No;//设置效验位
         USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;//设置流控制
         USART_InitStructure.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;//设置工作模式
         USART_Init(USART1, &USART_InitStructure); //配置入结构体
@@ -313,7 +313,9 @@ void UART_Print_Char2(void)
 static void  Printer_TITLE(void)
 {
   Uint8  i;
+	Uint16 tmp;
   Uint8  send_tmp[20];
+	
   i = 0;
   /////////////////////////
   UART_PrintChar(0x1b);
@@ -321,19 +323,22 @@ static void  Printer_TITLE(void)
   UART_PrintChar(0x02);  //横向纵向都放大 一倍
   /////////////////////////////////////////////
   Printer_EN_MODE();
-	////////////根据型号打印不同的抬头
-	if(INNER_CAL_VERSION)
-	  UART_PrintStr(machine_name[model_id&0xff][(model_id>>8)&0xff]);
-	else	
-	  UART_PrintStr(machine_nameC[model_id&0xff][(model_id>>8)&0xff]);
  
+	tmp = (model_id>>8)&0xffff;
+	UART_PrintChar(tmp/100 +0x30);
+  UART_PrintChar((tmp%100)/10 +0x30);
+  UART_PrintChar('0');
+  UART_PrintChar(3 + dot_position +0x30);	
+ 
+	/*
   if(CHINESE == flag_language)
 	 {
     Printer_CH_MODE();
     UART_PrintStr("分析天平");
    }
-  else
-    UART_PrintStr("ELECTRONIC BALANCE");
+  else*/
+	
+  UART_PrintStr("ELECTRONIC BALANCE");
   Printer_enter();
   Printer_EN_MODE();
 }
@@ -446,15 +451,8 @@ static void  Printer_data(void)
 	}
   Printer_enter();
 }  
-void  UART_PrintData(void)
-{
-  Printer_TITLE();
-  Printer_TABLE();
-  Printer_data(); 
-  Printer_SIGN();
-  print_busy = 0; 
- }
- 
+
+
 void  Printer_Init(void)
   {
     UART_PrintChar(0x1b);
@@ -467,3 +465,16 @@ void  Printer_Init(void)
     UART_Print_Char1();
   }   
     
+	
+	
+void  UART_PrintData(void)
+{
+	Printer_Init();
+  Printer_TITLE();
+  Printer_TABLE();
+  Printer_data(); 
+  Printer_SIGN();
+  print_busy = 0; 
+ }
+ 
+

@@ -285,12 +285,19 @@ Uint8  Init_UARTCONFIG_Para(void)
 	 
    Read_EEPROM(EEP_USR_FUN5_ADDR, buf, 8);
    for(i=0;i<1000;i++)	{;}	             //delay
-   //第一个参数为 用户选择模式 不保存
-	 //第二个参数为 开始校验 依次为 重量单位 温度单位 是否显示最后一位
- 	 if((0x00!=buf[0])&&(CHECK_DATA==buf[3])&&(buf[2]==buf[1]+buf[0]))
+   //第一个参数为 通讯速率
+	 if((0x00!=buf[0])&&(CHECK_DATA==buf[3])&&(buf[2]==buf[1]+buf[0]))
 		   uart_format_type = buf[0];
 	 else 
  		   uart_format_type = UART_TYPE_DEF;
+ 
+	 if((0x00!=buf[4])&&(CHECK_DATA==buf[7])&&(buf[6]==buf[5]+buf[4]))
+		   Uart_Printer_Flag = buf[4];
+	 else 
+ 		   Uart_Printer_Flag = 1;  //to PC
+  
+	 if(2 == Uart_Printer_Flag)  //to printer ,force baud to 9600
+  		   uart_format_type = UART_TYPE_AUTO_F1_9600;
  }
 
 //////////////////////////////////////////////////
@@ -1626,12 +1633,19 @@ void  Res_factory_pro(void)
 	   for(i=0;i<1234567;i++)  //延时
 		 ///////////////////////////////////////////////////////////
 		 uart_format_type = UART_TYPE_DEF; 	
-		 
      buf[0] = uart_format_type;
 	   buf[1] = CHECK_DATA;
 		 buf[2] = buf[0] + buf[1];
 		 buf[3] = CHECK_DATA;
-		 Write_EEPROM(EEP_USR_FUN5_ADDR,buf, 4); 
+		 
+		 Uart_Printer_Flag = 1; 	
+     buf[4] = Uart_Printer_Flag;
+	   buf[5] = CHECK_DATA;
+		 buf[6] = buf[4] + buf[5];
+		 buf[7] = CHECK_DATA;
+		 Write_EEPROM(EEP_USR_FUN5_ADDR,buf, 8); 
+		 
+		 USART_Configuration();
      //调用删除记录
      Del_rec_all();		 
 }	

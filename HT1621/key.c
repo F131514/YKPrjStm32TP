@@ -313,22 +313,11 @@ void Key_Print_Pro(void)
 								{}									
 						    
 							 }
-					else if((0==print_busy)&&(TRUE==stable_flag))          
+					else if((0==print_busy)&&(TRUE==stable_flag)&&(2==Uart_Printer_Flag))          
 				       {
                  print_busy = 1;
-								 UART_SendData_NJ_format2();
-								 print_busy = 0;
-                 /*
-								 if(uart_format_type > UART_TYPE_AUTO_F2_9600)	
-				          {
-									 	
-				           if(uart_format_type < UART_TYPE_MANU_F2_1200)     //选择1 2 3 4
-							        UART_SendData_NJ_format1();
-							     else
-							        UART_SendData_NJ_format2();
-									 print_busy = 0;
-				          } */
-               }
+								 UART_PrintData();
+				        } 
 				  else
 					    {}						
 				}	
@@ -447,14 +436,13 @@ void Key_Rec_Down_Pro(void)
 					                      break;		
 					 case MENU_CONFIG_DEF: //恢复出厂数据
 						                     //
-					 /*
+				
 					 case MENU_CONFIG_COMM: //打印格式选择
 						                     //
-					                       uart_format_type++;
-					                       if(UART_TYPE_END == uart_format_type)
-																    uart_format_type = 0x01; 
+					                       Uart_Printer_Flag++;
+					                       if(Uart_Printer_Flag > 2)
+																    Uart_Printer_Flag = 0x01; 
 					                      break;		 
-				   */
 					 default:break;		           	       	 
  				}
 			 }	
@@ -537,7 +525,23 @@ void Key_Cal_Confirm_Pro(void)
 					 buf[2] = buf[0] + buf[1];
 					 buf[3] = CHECK_DATA;
 					 Write_EEPROM(EEP_USR_FUN5_ADDR,buf, 4); 
+					 
+					 //Init_UARTCONFIG_Para();
+					 //USART_Configuration();
 				 }
+				 if(MENU_CONFIG_COMM == current_menu)
+				 {
+					 buf[0] = Uart_Printer_Flag;
+					 buf[1] = CHECK_DATA;
+					 buf[2] = buf[0] + buf[1];
+					 buf[3] = CHECK_DATA;
+					 Write_EEPROM(EEP_USR_FUN6_ADDR,buf, 4);
+ 
+           //Init_UARTCONFIG_Para();
+           //USART_Configuration();					 
+				 }
+				 
+				 
 				 
 			 }
 		else if(STAT_PCS==current_mode)

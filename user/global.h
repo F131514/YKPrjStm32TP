@@ -89,9 +89,9 @@
 
 #define MENU_CONFIG_DEL         0x06
 #define MENU_CONFIG_DEF         0x07
-//#define MENU_CONFIG_COMM      0x07    屏蔽此功能  
+#define MENU_CONFIG_COMM        0x08
 
-#define MENU_CONFIG_END         0x08
+#define MENU_CONFIG_END         0x09
 //////////////////////////////////////////////////////
 //工厂模式下的几个配置项
 #define MENU_F_CONFIG_FULL      0x00 //满量程
@@ -142,7 +142,7 @@
 #define UART_TYPE_MANU_F2_9600  0x10
 
 //#define UART_TYPE_END           0x11
-#define UART_TYPE_END           0x06   //5种波特率
+#define UART_TYPE_END            0x05   //4种波特率
 
 ///////////////////????? ??
 #define   CAL_POINT_NUM            11

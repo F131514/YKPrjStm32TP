@@ -156,26 +156,22 @@ void Normal_Pro(void)
              /////////////////////////开机不稳定时间判断，当不稳定超过40S后强制开机							
 						 if((TRUE==power_on_flag)&&(sample_temp_time>40))
 							   power_on_flag = FALSE;  
-						 /*
-		         
-						 if((uart_format_type<UART_TYPE_MANU_F1_1200)&&(TRUE==stable_flag))
-						 {
-							 if(uart_format_type < UART_TYPE_AUTO_F2_1200)     //选择1 2 3 4
-							 UART_SendData_NJ_format1();
-							 else
-							 UART_SendData_NJ_format2();	 
 						 
-						 }
-						 */
-						 
-						  if(TRUE==stable_flag)
-						 {
-							 //if(uart_format_type < UART_TYPE_AUTO_F2_1200)     //选择1 2 3 4
-							 //UART_SendData_NJ_format1();
-							 //else
-							 UART_SendData_NJ_format2();	 
-						 
-						 }
+		         if((1 == Uart_Printer_Flag)&&(TRUE == stable_flag)) {
+						     if((uart_format_type<UART_TYPE_MANU_F1_1200))
+						     {
+							     if(uart_format_type < UART_TYPE_AUTO_F2_1200)     //选择1 2 3 4
+							     UART_SendData_NJ_format1();
+							     else
+							     UART_SendData_NJ_format2();	 
+						 	   } else {
+								   if(uart_format_type < UART_TYPE_MANU_F2_1200)     //选择1 2 3 4
+							       UART_SendData_NJ_format1();
+							      else
+							       UART_SendData_NJ_format2();	 
+						       }
+								 } 
+					
              if(sample_temp_time > 1800)
                  {
                   temp_cmp_flag = TRUE;
@@ -211,7 +207,7 @@ int main(void)
 	//把UART参数调出来 以备初始化UART
 	Init_UARTCONFIG_Para();
 	USART_Configuration();
-	Printer_Init();        //配置打印机
+	//Printer_Init();        //配置打印机
 	
 	EPM7064_PIN_Init(); 
 	///////////////////////////////////////////////把CPLD计数参数首先读出来

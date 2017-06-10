@@ -849,8 +849,12 @@ void Display_CFG_Pro(void)
 			                     display_buffer[6] = display_code[6];
 													 display_buffer[7] = display_code[6]; 
 													 break;	
-		
-			
+			case MENU_CONFIG_COMM:
+			                     display_buffer[3] = display_code[0];display_buffer[4] = display_code[8];
+			                     //
+			                     display_buffer[6] = display_code[0];
+													 display_buffer[7] = display_code[Uart_Printer_Flag]; 
+													 break;	
       default:
 			                     break;
                            			

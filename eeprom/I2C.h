@@ -51,7 +51,7 @@
 #define   EEP_USR_FUN3_ADDR               0x58  //
 #define   EEP_USR_FUN4_ADDR               0x5C  //
 #define   EEP_USR_FUN5_ADDR               0x60  // 存放数据通讯格式
-#define   EEP_USR_FUN6_ADDR               0x64  //
+#define   EEP_USR_FUN6_ADDR               0x64  // 存放串口数据目的地
 #define   EEP_USR_FUN7_ADDR               0x68  //
 #define   EEP_USR_FUN8_ADDR               0x6C  //
 //系统配置参数 0x60-0x80

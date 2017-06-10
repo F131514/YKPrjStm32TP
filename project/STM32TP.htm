@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\STM32TP.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\STM32TP.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5040049: Last Updated: Tue Mar 14 23:01:23 2017
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5040049: Last Updated: Sat Jun 10 11:12:06 2017
 <BR><P>
 <H3>Maximum Stack Usage =        368 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -206,8 +206,8 @@ Global Symbols
 <P><STRONG><a name="[191]"></a>__rt_entry_postsh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtentry2.o(.ARM.Collect$$rtentry$$00000009))
 
 <P><STRONG><a name="[3c]"></a>__rt_entry_main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtentry2.o(.ARM.Collect$$rtentry$$0000000D))
-<BR><BR>[Stack]<UL><LI>Max Depth = 220 + Unknown Stack Size
-<LI>Call Chain = __rt_entry_main &rArr; main &rArr; Normal_Pro &rArr; Key_Pro &rArr; Key_Print_Pro &rArr; Res_factory_pro &rArr; Del_rec_all &rArr; Write_EEPROM &rArr; Read_EEPROM &rArr; I2C_Recv_Byte &rArr; SET_I2C_INPUT &rArr; GPIO_Init
+<BR><BR>[Stack]<UL><LI>Max Depth = 224 + Unknown Stack Size
+<LI>Call Chain = __rt_entry_main &rArr; main &rArr; Normal_Pro &rArr; Key_Pro &rArr; Key_Print_Pro &rArr; UART_PrintData &rArr; Printer_data &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit
@@ -271,7 +271,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_SYSCONFIG_Para
 </UL>
 
-<P><STRONG><a name="[4e]"></a>Init_UARTCONFIG_Para</STRONG> (Thumb, 64 bytes, Stack size 24 bytes, global.o(.text))
+<P><STRONG><a name="[4e]"></a>Init_UARTCONFIG_Para</STRONG> (Thumb, 110 bytes, Stack size 24 bytes, global.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 108<LI>Call Chain = Init_UARTCONFIG_Para &rArr; Read_EEPROM &rArr; I2C_Recv_Byte &rArr; SET_I2C_INPUT &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Read_EEPROM
@@ -287,7 +287,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;System_Init
 </UL>
 
-<P><STRONG><a name="[50]"></a>Init_SYSCONFIG_Para</STRONG> (Thumb, 406 bytes, Stack size 40 bytes, global.o(.text))
+<P><STRONG><a name="[50]"></a>Init_SYSCONFIG_Para</STRONG> (Thumb, 442 bytes, Stack size 40 bytes, global.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 124<LI>Call Chain = Init_SYSCONFIG_Para &rArr; Read_EEPROM &rArr; I2C_Recv_Byte &rArr; SET_I2C_INPUT &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Read_EEPROM
@@ -297,13 +297,13 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;System_Init
 </UL>
 
-<P><STRONG><a name="[52]"></a>Init_Userfull_Para</STRONG> (Thumb, 258 bytes, Stack size 32 bytes, global.o(.text))
+<P><STRONG><a name="[52]"></a>Init_Userfull_Para</STRONG> (Thumb, 220 bytes, Stack size 32 bytes, global.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 116<LI>Call Chain = Init_Userfull_Para &rArr; Read_EEPROM &rArr; I2C_Recv_Byte &rArr; SET_I2C_INPUT &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Read_EEPROM
-<LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 <LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2f
 <LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
+<LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 </UL>
 <BR>[Called By]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;System_Init
 </UL>
@@ -327,9 +327,9 @@ Global Symbols
 <P><STRONG><a name="[57]"></a>Get_Linecal10_para</STRONG> (Thumb, 86 bytes, Stack size 24 bytes, global.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = Get_Linecal10_para &rArr; __aeabi_fdiv
 </UL>
-<BR>[Calls]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
-<LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2f
+<BR>[Calls]<UL><LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2f
 <LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
+<LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;point10_cal_proc
 <LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_Linecal10_Para
@@ -351,14 +351,14 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[59]"></a>Get_Line4_data</STRONG> (Thumb, 550 bytes, Stack size 88 bytes, global.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
-<LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
-<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_scalbnf
-<LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2uiz
+<BR><BR>[Calls]<UL><LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2uiz
 <LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
 <LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2d
 <LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
+<LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
+<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_scalbnf
 </UL>
 
 <P><STRONG><a name="[60]"></a>Init_Linecal4_Variable</STRONG> (Thumb, 126 bytes, Stack size 40 bytes, global.o(.text), UNUSED)
@@ -448,13 +448,13 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stable_manual_break
 <LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Write_EEPROM
-<LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
-<LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
-<LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 <LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2uiz
 <LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
 <LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2d
 <LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
+<LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
+<LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 </UL>
 <BR>[Called By]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;update_new_data
 </UL>
@@ -466,14 +466,14 @@ Global Symbols
 <LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Write_EEPROM
 <LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;End_Cal_Pro
 <LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_run_proc
-<LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
-<LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
-<LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 <LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2uiz
 <LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
 <LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 <LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2d
 <LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
+<LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
+<LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 </UL>
 <BR>[Called By]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;update_new_data
 </UL>
@@ -489,19 +489,19 @@ Global Symbols
 <LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;point10_cal_proc
 <LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_Line10_data
 <LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;display_to_int
-<LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
-<LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
-<LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
-<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfrcmple
 <LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
 <LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfcmple
 <LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2f
 <LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
 <LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
 <LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
+<LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
+<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfrcmple
 </UL>
-<BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Normal_Pro
-<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Factory_Pro
+<BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Normal_Pro
+<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Factory_Pro
 </UL>
 
 <P><STRONG><a name="[7c]"></a>Save_Rec</STRONG> (Thumb, 278 bytes, Stack size 40 bytes, global.o(.text))
@@ -513,96 +513,97 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Save_Up_Pro
 </UL>
 
-<P><STRONG><a name="[7d]"></a>Res_factory_pro</STRONG> (Thumb, 98 bytes, Stack size 32 bytes, global.o(.text))
+<P><STRONG><a name="[7d]"></a>Res_factory_pro</STRONG> (Thumb, 112 bytes, Stack size 32 bytes, global.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 188<LI>Call Chain = Res_factory_pro &rArr; Del_rec_all &rArr; Write_EEPROM &rArr; Read_EEPROM &rArr; I2C_Recv_Byte &rArr; SET_I2C_INPUT &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Write_EEPROM
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Configuration
 <LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Del_rec_all
 </UL>
 <BR>[Called By]<UL><LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Print_Pro
 </UL>
 
-<P><STRONG><a name="[7e]"></a>Cali_density_pro</STRONG> (Thumb, 192 bytes, Stack size 32 bytes, global.o(.text))
+<P><STRONG><a name="[7f]"></a>Cali_density_pro</STRONG> (Thumb, 192 bytes, Stack size 32 bytes, global.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = Cali_density_pro &rArr; __aeabi_ddiv
 </UL>
-<BR>[Calls]<UL><LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
-<LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
-<LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
-<LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
+<BR>[Calls]<UL><LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
 <LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
 <LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 <LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
+<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
+<LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
 </UL>
 <BR>[Called By]<UL><LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Zero_Pro
 </UL>
 
-<P><STRONG><a name="[7f]"></a>Factory_Pro</STRONG> (Thumb, 102 bytes, Stack size 0 bytes, main.o(.text))
+<P><STRONG><a name="[80]"></a>Factory_Pro</STRONG> (Thumb, 102 bytes, Stack size 0 bytes, main.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 212 + Unknown Stack Size
 <LI>Call Chain = Factory_Pro &rArr; update_new_data &rArr; point10_cal_proc &rArr; Write_EEPROM &rArr; Read_EEPROM &rArr; I2C_Recv_Byte &rArr; SET_I2C_INPUT &rArr; GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;filter
-<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Update_Display
-<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Open
-<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Close
-<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_F_Pro
-<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ht1621_F_Display_area3
-<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ht1621_F_Display_area1
+<BR>[Calls]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;filter
+<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Update_Display
+<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Open
+<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Close
+<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_F_Pro
+<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ht1621_F_Display_area3
+<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ht1621_F_Display_area1
 <LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_Key_Code
 <LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;update_new_data
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[87]"></a>Normal_Pro</STRONG> (Thumb, 252 bytes, Stack size 0 bytes, main.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 212 + Unknown Stack Size
-<LI>Call Chain = Normal_Pro &rArr; Key_Pro &rArr; Key_Print_Pro &rArr; Res_factory_pro &rArr; Del_rec_all &rArr; Write_EEPROM &rArr; Read_EEPROM &rArr; I2C_Recv_Byte &rArr; SET_I2C_INPUT &rArr; GPIO_Init
+<P><STRONG><a name="[88]"></a>Normal_Pro</STRONG> (Thumb, 286 bytes, Stack size 0 bytes, main.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 216 + Unknown Stack Size
+<LI>Call Chain = Normal_Pro &rArr; Key_Pro &rArr; Key_Print_Pro &rArr; UART_PrintData &rArr; Printer_data &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;filter_ad_NTC
-<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;filter
-<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Update_Display
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_SendData_NJ_format2
-<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Open
-<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Close
-<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Pro
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ht1621_Display_area3
-<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ht1621_Display_area2
-<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ht1621_Display_area1
-<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_temp_ad
+<BR>[Calls]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;filter_ad_NTC
+<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;filter
+<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Update_Display
+<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_SendData_NJ_format2
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_SendData_NJ_format1
+<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Open
+<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Close
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Pro
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ht1621_Display_area3
+<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ht1621_Display_area2
+<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ht1621_Display_area1
+<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_temp_ad
 <LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_Key_Code
 <LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;update_new_data
-<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;abs
 <LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
 <LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;abs
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[3d]"></a>main</STRONG> (Thumb, 356 bytes, Stack size 8 bytes, main.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 220 + Unknown Stack Size
-<LI>Call Chain = main &rArr; Normal_Pro &rArr; Key_Pro &rArr; Key_Print_Pro &rArr; Res_factory_pro &rArr; Del_rec_all &rArr; Write_EEPROM &rArr; Read_EEPROM &rArr; I2C_Recv_Byte &rArr; SET_I2C_INPUT &rArr; GPIO_Init
+<P><STRONG><a name="[3d]"></a>main</STRONG> (Thumb, 352 bytes, Stack size 8 bytes, main.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 224 + Unknown Stack Size
+<LI>Call Chain = main &rArr; Normal_Pro &rArr; Key_Pro &rArr; Key_Print_Pro &rArr; UART_PrintData &rArr; Printer_data &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Update_Display
-<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Configuration
-<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM3_Init
-<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPEAKER_PIN_Init
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_Config
-<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Printer_Init
-<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Init
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_1621
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2c_Init
+<BR>[Calls]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Update_Display
+<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM3_Init
+<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPEAKER_PIN_Init
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_Config
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Init
+<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_1621
+<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2c_Init
 <LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EPM7064_PIN_Init
 <LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Displaybuf_All_on
 <LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Displaybuf_All_off
 <LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Display_Prehot_time
 <LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Display_Model_Info
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPU_LED_Init
+<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPU_LED_Init
 <LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BL_Open
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BL_LED_Init
+<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BL_LED_Init
 <LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BL_Close
 <LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC1_Init
-<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Normal_Pro
-<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Factory_Pro
+<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Normal_Pro
+<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Factory_Pro
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Configuration
 <LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Read_EEPROM
 <LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_Key_Code
 <LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;System_Init
@@ -618,10 +619,10 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB1PeriphClockCmd
 <LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM3_Init
+<BR>[Called By]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM3_Init
 </UL>
 
-<P><STRONG><a name="[90]"></a>TIM3_Init</STRONG> (Thumb, 52 bytes, Stack size 24 bytes, timer.o(.text))
+<P><STRONG><a name="[92]"></a>TIM3_Init</STRONG> (Thumb, 52 bytes, Stack size 24 bytes, timer.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = TIM3_Init &rArr; TIM_INT_Config &rArr; NVIC_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_TimeBaseInit
@@ -639,7 +640,7 @@ Global Symbols
 <LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ClearITPendingBit
 <LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Sound_Pro
 <LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Scan
-<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Update_Display
+<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Update_Display
 <LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Displaybuf_All_off
 <LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BL_Close
 </UL>
@@ -649,7 +650,7 @@ Global Symbols
 
 <P><STRONG><a name="[199]"></a>Delay_Nms</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, timer.o(.text), UNUSED)
 
-<P><STRONG><a name="[98]"></a>USART_Configuration</STRONG> (Thumb, 160 bytes, Stack size 48 bytes, uart.o(.text))
+<P><STRONG><a name="[7e]"></a>USART_Configuration</STRONG> (Thumb, 150 bytes, Stack size 48 bytes, uart.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = USART_Configuration &rArr; USART_Init &rArr; RCC_GetClocksFreq
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Init
@@ -660,19 +661,20 @@ Global Symbols
 <LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Res_factory_pro
 </UL>
 
 <P><STRONG><a name="[b3]"></a>UART_PrintChar</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, uart.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_PrintData
-<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Print_Char2
-<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Print_Char1
+<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Printer_Init
+<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Print_Char2
+<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Print_Char1
 <LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_PrintStr
 <LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_CommStr
 <LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Printer_TABLE
 <LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Printer_TITLE
-<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Printer_EN_MODE
-<LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Printer_data
-<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Printer_Init
+<LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Printer_EN_MODE
+<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Printer_data
 </UL>
 
 <P><STRONG><a name="[b2]"></a>UART_CommStr</STRONG> (Thumb, 28 bytes, Stack size 12 bytes, uart.o(.text))
@@ -680,18 +682,20 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_PrintChar
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_SendData_NJ_format1
-<LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_SendData
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_SendData_NJ_format2
+<BR>[Called By]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_SendData
+<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_SendData_NJ_format2
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_SendData_NJ_format1
 </UL>
 
-<P><STRONG><a name="[b4]"></a>UART_PrintStr</STRONG> (Thumb, 20 bytes, Stack size 4 bytes, uart.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_PrintChar
+<P><STRONG><a name="[b4]"></a>UART_PrintStr</STRONG> (Thumb, 20 bytes, Stack size 4 bytes, uart.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = UART_PrintStr
+</UL>
+<BR>[Calls]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_PrintChar
 </UL>
 <BR>[Called By]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_PrintData
 <LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Printer_TABLE
 <LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Printer_TITLE
-<LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Printer_data
+<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Printer_data
 </UL>
 
 <P><STRONG><a name="[19a]"></a>UART_Recive</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, uart.o(.text), UNUSED)
@@ -700,51 +704,61 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_CommStr
 </UL>
 
-<P><STRONG><a name="[b6]"></a>UART_SendData_NJ_format1</STRONG> (Thumb, 94 bytes, Stack size 24 bytes, uart.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_CommStr
-<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
+<P><STRONG><a name="[90]"></a>UART_SendData_NJ_format1</STRONG> (Thumb, 94 bytes, Stack size 24 bytes, uart.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 152 + Unknown Stack Size
+<LI>Call Chain = UART_SendData_NJ_format1 &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
+</UL>
+<BR>[Calls]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_CommStr
 <LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
+</UL>
+<BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Normal_Pro
 </UL>
 
-<P><STRONG><a name="[8f]"></a>UART_SendData_NJ_format2</STRONG> (Thumb, 94 bytes, Stack size 24 bytes, uart.o(.text))
+<P><STRONG><a name="[91]"></a>UART_SendData_NJ_format2</STRONG> (Thumb, 94 bytes, Stack size 24 bytes, uart.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 152 + Unknown Stack Size
 <LI>Call Chain = UART_SendData_NJ_format2 &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_CommStr
-<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 <LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Normal_Pro
-<LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Print_Pro
+<BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Normal_Pro
 </UL>
 
-<P><STRONG><a name="[b8]"></a>UART_Print_Char1</STRONG> (Thumb, 16 bytes, Stack size 4 bytes, uart.o(.text))
+<P><STRONG><a name="[b7]"></a>UART_Print_Char1</STRONG> (Thumb, 16 bytes, Stack size 4 bytes, uart.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = UART_Print_Char1
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_PrintChar
 </UL>
-<BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Printer_Init
+<BR>[Called By]<UL><LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Printer_Init
 </UL>
 
-<P><STRONG><a name="[b9]"></a>UART_Print_Char2</STRONG> (Thumb, 16 bytes, Stack size 4 bytes, uart.o(.text), UNUSED)
+<P><STRONG><a name="[b8]"></a>UART_Print_Char2</STRONG> (Thumb, 16 bytes, Stack size 4 bytes, uart.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_PrintChar
 </UL>
 
-<P><STRONG><a name="[bc]"></a>UART_PrintData</STRONG> (Thumb, 74 bytes, Stack size 32 bytes, uart.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_PrintStr
+<P><STRONG><a name="[bb]"></a>Printer_Init</STRONG> (Thumb, 38 bytes, Stack size 4 bytes, uart.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = Printer_Init &rArr; UART_Print_Char1
+</UL>
+<BR>[Calls]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Print_Char1
+<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_PrintChar
+</UL>
+<BR>[Called By]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_PrintData
+</UL>
+
+<P><STRONG><a name="[bc]"></a>UART_PrintData</STRONG> (Thumb, 78 bytes, Stack size 32 bytes, uart.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 192 + Unknown Stack Size
+<LI>Call Chain = UART_PrintData &rArr; Printer_data &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
+</UL>
+<BR>[Calls]<UL><LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Printer_Init
+<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_PrintStr
 <LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_PrintChar
 <LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Printer_TABLE
 <LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Printer_TITLE
-<LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Printer_data
+<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Printer_data
 </UL>
-
-<P><STRONG><a name="[99]"></a>Printer_Init</STRONG> (Thumb, 38 bytes, Stack size 4 bytes, uart.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = Printer_Init &rArr; UART_Print_Char1
-</UL>
-<BR>[Calls]<UL><LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Print_Char1
-<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_PrintChar
-</UL>
-<BR>[Called By]<UL><LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<BR>[Called By]<UL><LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Print_Pro
 </UL>
 
 <P><STRONG><a name="[6d]"></a>stable_manual_break</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, filter.o(.text))
@@ -764,7 +778,7 @@ Global Symbols
 
 <P><STRONG><a name="[19c]"></a>get_buf_data2</STRONG> (Thumb, 92 bytes, Stack size 84 bytes, filter.o(.text), UNUSED)
 
-<P><STRONG><a name="[80]"></a>filter</STRONG> (Thumb, 210 bytes, Stack size 24 bytes, filter.o(.text))
+<P><STRONG><a name="[81]"></a>filter</STRONG> (Thumb, 210 bytes, Stack size 24 bytes, filter.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = filter &rArr; filter_total2
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_Raw
@@ -772,8 +786,8 @@ Global Symbols
 <LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;filter_total1
 <LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;filter_Average2
 </UL>
-<BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Normal_Pro
-<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Factory_Pro
+<BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Normal_Pro
+<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Factory_Pro
 </UL>
 
 <P><STRONG><a name="[77]"></a>auto_zer0</STRONG> (Thumb, 52 bytes, Stack size 8 bytes, filter.o(.text))
@@ -792,20 +806,20 @@ Global Symbols
 
 <P><STRONG><a name="[19d]"></a>filter_init_lpc2478ad</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, filter.o(.text), UNUSED)
 
-<P><STRONG><a name="[8b]"></a>filter_ad_NTC</STRONG> (Thumb, 186 bytes, Stack size 24 bytes, filter.o(.text))
+<P><STRONG><a name="[8c]"></a>filter_ad_NTC</STRONG> (Thumb, 186 bytes, Stack size 24 bytes, filter.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = filter_ad_NTC &rArr; __aeabi_ddiv
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
-<LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
-<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfrcmple
-<LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
+<BR>[Calls]<UL><LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
 <LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2f
 <LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
 <LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
 <LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2d
 <LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
+<LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
+<LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
+<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfrcmple
 </UL>
-<BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Normal_Pro
+<BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Normal_Pro
 </UL>
 
 <P><STRONG><a name="[19e]"></a>Get_Raw1_Data</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, filter.o(.text), UNUSED)
@@ -841,11 +855,11 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[8a]"></a>Get_temp_ad</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, ad_acquire.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Normal_Pro
+<P><STRONG><a name="[8b]"></a>Get_temp_ad</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, ad_acquire.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Normal_Pro
 </UL>
 
-<P><STRONG><a name="[93]"></a>CPU_LED_Init</STRONG> (Thumb, 50 bytes, Stack size 24 bytes, led.o(.text))
+<P><STRONG><a name="[95]"></a>CPU_LED_Init</STRONG> (Thumb, 50 bytes, Stack size 24 bytes, led.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = CPU_LED_Init &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_AHBPeriphClockCmd
@@ -855,7 +869,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[94]"></a>BL_LED_Init</STRONG> (Thumb, 38 bytes, Stack size 16 bytes, led.o(.text))
+<P><STRONG><a name="[96]"></a>BL_LED_Init</STRONG> (Thumb, 38 bytes, Stack size 16 bytes, led.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = BL_LED_Init &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_AHBPeriphClockCmd
@@ -864,7 +878,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[95]"></a>SPEAKER_PIN_Init</STRONG> (Thumb, 48 bytes, Stack size 24 bytes, led.o(.text))
+<P><STRONG><a name="[97]"></a>SPEAKER_PIN_Init</STRONG> (Thumb, 48 bytes, Stack size 24 bytes, led.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = SPEAKER_PIN_Init &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_AHBPeriphClockCmd
@@ -874,13 +888,13 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[86]"></a>LED_Open</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, led.o(.text))
+<P><STRONG><a name="[87]"></a>LED_Open</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, led.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = LED_Open
 </UL>
 <BR>[Calls]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
 </UL>
-<BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Normal_Pro
-<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Factory_Pro
+<BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Normal_Pro
+<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Factory_Pro
 </UL>
 
 <P><STRONG><a name="[9c]"></a>BL_Open</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, led.o(.text))
@@ -900,13 +914,13 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Sound_Pro
 </UL>
 
-<P><STRONG><a name="[85]"></a>LED_Close</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, led.o(.text))
+<P><STRONG><a name="[86]"></a>LED_Close</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, led.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = LED_Close
 </UL>
 <BR>[Calls]<UL><LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
 </UL>
-<BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Normal_Pro
-<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Factory_Pro
+<BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Normal_Pro
+<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Factory_Pro
 </UL>
 
 <P><STRONG><a name="[9e]"></a>BL_Close</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, led.o(.text))
@@ -934,15 +948,15 @@ Global Symbols
 <P><STRONG><a name="[af]"></a>GPIO_Init</STRONG> (Thumb, 112 bytes, Stack size 20 bytes, stm32f0xx_gpio.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = GPIO_Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Configuration
-<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPEAKER_PIN_Init
-<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Init
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_1621
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2c_Init
+<BR>[Called By]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPEAKER_PIN_Init
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Init
+<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_1621
+<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2c_Init
 <LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EPM7064_PIN_Init
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPU_LED_Init
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BL_LED_Init
+<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPU_LED_Init
+<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BL_LED_Init
 <LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC1_Init
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Configuration
 <LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SET_I2C_INPUT
 <LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SET_I2C_OUTPUT
 </UL>
@@ -969,10 +983,10 @@ Global Symbols
 
 <P><STRONG><a name="[45]"></a>GPIO_SetBits</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f0xx_gpio.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPEAKER_Open
-<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Update_Display
-<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Close
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_1621
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPU_LED_Init
+<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Update_Display
+<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Close
+<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_1621
+<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPU_LED_Init
 <LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BL_Open
 <LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_run_proc
 <LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_Recv_Byte
@@ -987,9 +1001,9 @@ Global Symbols
 
 <P><STRONG><a name="[46]"></a>GPIO_ResetBits</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f0xx_gpio.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPEAKER_Close
-<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Update_Display
-<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPEAKER_PIN_Init
-<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Open
+<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Update_Display
+<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPEAKER_PIN_Init
+<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Open
 <LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BL_Close
 <LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_run_proc
 <LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_Recv_Byte
@@ -1009,7 +1023,7 @@ Global Symbols
 <P><STRONG><a name="[ae]"></a>GPIO_PinAFConfig</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, stm32f0xx_gpio.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = GPIO_PinAFConfig
 </UL>
-<BR>[Called By]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Configuration
+<BR>[Called By]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Configuration
 </UL>
 
 <P><STRONG><a name="[1a7]"></a>RCC_DeInit</STRONG> (Thumb, 78 bytes, Stack size 0 bytes, stm32f0xx_rcc.o(.text), UNUSED)
@@ -1018,7 +1032,7 @@ Global Symbols
 
 <P><STRONG><a name="[d6]"></a>RCC_GetFlagStatus</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, stm32f0xx_rcc.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_WaitForHSEStartUp
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_Config
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_Config
 </UL>
 
 <P><STRONG><a name="[d5]"></a>RCC_WaitForHSEStartUp</STRONG> (Thumb, 44 bytes, Stack size 12 bytes, stm32f0xx_rcc.o(.text), UNUSED)
@@ -1040,7 +1054,7 @@ Global Symbols
 <P><STRONG><a name="[1af]"></a>RCC_LSEDriveConfig</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f0xx_rcc.o(.text), UNUSED)
 
 <P><STRONG><a name="[13b]"></a>RCC_LSICmd</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, stm32f0xx_rcc.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_Config
+<BR><BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_Config
 </UL>
 
 <P><STRONG><a name="[1b0]"></a>RCC_PLLConfig</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, stm32f0xx_rcc.o(.text), UNUSED)
@@ -1078,38 +1092,38 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[13c]"></a>RCC_RTCCLKConfig</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, stm32f0xx_rcc.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_Config
+<BR><BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_Config
 </UL>
 
 <P><STRONG><a name="[13d]"></a>RCC_RTCCLKCmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f0xx_rcc.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_Config
+<BR><BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_Config
 </UL>
 
 <P><STRONG><a name="[1bd]"></a>RCC_BackupResetCmd</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, stm32f0xx_rcc.o(.text), UNUSED)
 
 <P><STRONG><a name="[ac]"></a>RCC_AHBPeriphClockCmd</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f0xx_rcc.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Configuration
-<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPEAKER_PIN_Init
-<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Init
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_1621
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2c_Init
+<BR><BR>[Called By]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPEAKER_PIN_Init
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Init
+<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_1621
+<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2c_Init
 <LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EPM7064_PIN_Init
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPU_LED_Init
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BL_LED_Init
+<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CPU_LED_Init
+<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BL_LED_Init
 <LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC1_Init
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Configuration
 <LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SET_I2C_INPUT
 <LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SET_I2C_OUTPUT
 </UL>
 
 <P><STRONG><a name="[ad]"></a>RCC_APB2PeriphClockCmd</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f0xx_rcc.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Configuration
-<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EPM7064_PIN_Init
+<BR><BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EPM7064_PIN_Init
 <LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC1_Init
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Configuration
 </UL>
 
 <P><STRONG><a name="[a3]"></a>RCC_APB1PeriphClockCmd</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f0xx_rcc.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_INT_Config
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_Config
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_Config
 </UL>
 
 <P><STRONG><a name="[d4]"></a>RCC_AHBPeriphResetCmd</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f0xx_rcc.o(.text), UNUSED)
@@ -1117,15 +1131,15 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[d9]"></a>RCC_APB2PeriphResetCmd</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f0xx_rcc.o(.text), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC_DeInit
+<BR><BR>[Called By]<UL><LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_DeInit
+<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC_DeInit
 <LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_DeInit
-<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_DeInit
 </UL>
 
 <P><STRONG><a name="[db]"></a>RCC_APB1PeriphResetCmd</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f0xx_rcc.o(.text), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PWR_DeInit
+<BR><BR>[Called By]<UL><LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_DeInit
+<LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PWR_DeInit
 <LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_DeInit
-<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_DeInit
 </UL>
 
 <P><STRONG><a name="[1be]"></a>RCC_ITConfig</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f0xx_rcc.o(.text), UNUSED)
@@ -1224,7 +1238,7 @@ Global Symbols
 <P><STRONG><a name="[a5]"></a>TIM_TimeBaseInit</STRONG> (Thumb, 88 bytes, Stack size 8 bytes, stm32f0xx_tim.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = TIM_TimeBaseInit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM3_Init
+<BR>[Called By]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM3_Init
 </UL>
 
 <P><STRONG><a name="[1d5]"></a>TIM_TimeBaseStructInit</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f0xx_tim.o(.text), UNUSED)
@@ -1252,7 +1266,7 @@ Global Symbols
 <P><STRONG><a name="[1e0]"></a>TIM_SetClockDivision</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f0xx_tim.o(.text), UNUSED)
 
 <P><STRONG><a name="[a7]"></a>TIM_Cmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f0xx_tim.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM3_Init
+<BR><BR>[Called By]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM3_Init
 </UL>
 
 <P><STRONG><a name="[1e1]"></a>TIM_BDTRConfig</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, stm32f0xx_tim.o(.text), UNUSED)
@@ -1356,21 +1370,21 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[dc]"></a>TIM_ICInit</STRONG> (Thumb, 162 bytes, Stack size 24 bytes, stm32f0xx_tim.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetIC1Prescaler
+<BR><BR>[Calls]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TI1_Config
+<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TI2_Config
+<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetIC1Prescaler
 <LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetIC2Prescaler
 <LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetIC3Prescaler
 <LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetIC4Prescaler
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TI1_Config
-<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TI2_Config
 </UL>
 
 <P><STRONG><a name="[20a]"></a>TIM_ICStructInit</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f0xx_tim.o(.text), UNUSED)
 
 <P><STRONG><a name="[e3]"></a>TIM_PWMIConfig</STRONG> (Thumb, 104 bytes, Stack size 24 bytes, stm32f0xx_tim.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetIC1Prescaler
-<LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetIC2Prescaler
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TI1_Config
+<BR><BR>[Calls]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TI1_Config
 <LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TI2_Config
+<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetIC1Prescaler
+<LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetIC2Prescaler
 </UL>
 
 <P><STRONG><a name="[20b]"></a>TIM_GetCapture1</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f0xx_tim.o(.text), UNUSED)
@@ -1382,7 +1396,7 @@ Global Symbols
 <P><STRONG><a name="[20e]"></a>TIM_GetCapture4</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f0xx_tim.o(.text), UNUSED)
 
 <P><STRONG><a name="[a6]"></a>TIM_ITConfig</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f0xx_tim.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM3_Init
+<BR><BR>[Called By]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM3_Init
 </UL>
 
 <P><STRONG><a name="[20f]"></a>TIM_GenerateEvent</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f0xx_tim.o(.text), UNUSED)
@@ -1417,9 +1431,9 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[e6]"></a>TIM_TIxExternalClockConfig</STRONG> (Thumb, 48 bytes, Stack size 16 bytes, stm32f0xx_tim.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SelectInputTrigger
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TI1_Config
+<BR><BR>[Calls]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TI1_Config
 <LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TI2_Config
+<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SelectInputTrigger
 </UL>
 
 <P><STRONG><a name="[e8]"></a>TIM_ETRConfig</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, stm32f0xx_tim.o(.text), UNUSED)
@@ -1458,7 +1472,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_GetClocksFreq
 <LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 </UL>
-<BR>[Called By]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Configuration
+<BR>[Called By]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Configuration
 </UL>
 
 <P><STRONG><a name="[21c]"></a>USART_StructInit</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, stm32f0xx_usart.o(.text), UNUSED)
@@ -1468,7 +1482,7 @@ Global Symbols
 <P><STRONG><a name="[21e]"></a>USART_ClockStructInit</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f0xx_usart.o(.text), UNUSED)
 
 <P><STRONG><a name="[b1]"></a>USART_Cmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f0xx_usart.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Configuration
+<BR><BR>[Called By]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Configuration
 </UL>
 
 <P><STRONG><a name="[21f]"></a>USART_DirectionModeCmd</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f0xx_usart.o(.text), UNUSED)
@@ -1585,7 +1599,7 @@ Global Symbols
 <P><STRONG><a name="[ed]"></a>RTC_WaitForSynchro</STRONG> (Thumb, 74 bytes, Stack size 12 bytes, stm32f0xx_rtc.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = RTC_WaitForSynchro
 </UL>
-<BR>[Called By]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_Config
+<BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_Config
 <LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_SynchroShiftConfig
 <LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_SetDate
 <LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_SetTime
@@ -1620,7 +1634,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_ExitInitMode
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_EnterInitMode
 </UL>
-<BR>[Called By]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_Config
+<BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_Config
 </UL>
 
 <P><STRONG><a name="[250]"></a>RTC_StructInit</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, stm32f0xx_rtc.o(.text), UNUSED)
@@ -1781,7 +1795,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[13a]"></a>PWR_BackupAccessCmd</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f0xx_pwr.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_Config
+<BR><BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_Config
 </UL>
 
 <P><STRONG><a name="[26e]"></a>PWR_PVDLevelConfig</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, stm32f0xx_pwr.o(.text), UNUSED)
@@ -1850,7 +1864,7 @@ Global Symbols
 
 <P><STRONG><a name="[284]"></a>DMA_ClearITPendingBit</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f0xx_dma.o(.text), UNUSED)
 
-<P><STRONG><a name="[92]"></a>Init_1621</STRONG> (Thumb, 92 bytes, Stack size 24 bytes, ht1621_driver.o(.text))
+<P><STRONG><a name="[94]"></a>Init_1621</STRONG> (Thumb, 92 bytes, Stack size 24 bytes, ht1621_driver.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = Init_1621 &rArr; Send_Com &rArr; Send_LBit
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_AHBPeriphClockCmd
@@ -1861,7 +1875,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[83]"></a>Update_Display</STRONG> (Thumb, 78 bytes, Stack size 16 bytes, ht1621_driver.o(.text))
+<P><STRONG><a name="[84]"></a>Update_Display</STRONG> (Thumb, 78 bytes, Stack size 16 bytes, ht1621_driver.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = Update_Display &rArr; Send_LBit
 </UL>
 <BR>[Calls]<UL><LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
@@ -1871,8 +1885,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[19]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM3_IRQHandler
 <LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Display_Prehot_time
 <LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Normal_Pro
-<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Factory_Pro
+<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Normal_Pro
+<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Factory_Pro
 <LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_ON_OFF_Pro
 </UL>
 
@@ -1889,7 +1903,7 @@ Global Symbols
 <P><STRONG><a name="[10c]"></a>Display_Boot_Info</STRONG> (Thumb, 50 bytes, Stack size 8 bytes, ht1621_driver.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = Display_Boot_Info
 </UL>
-<BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ht1621_Display_area1
+<BR>[Called By]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ht1621_Display_area1
 </UL>
 
 <P><STRONG><a name="[a1]"></a>Display_Model_Info</STRONG> (Thumb, 76 bytes, Stack size 16 bytes, ht1621_driver.o(.text))
@@ -1914,14 +1928,14 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 152 + Unknown Stack Size
 <LI>Call Chain = Display_weight_Data &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
-<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
-<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;update_area1_buf
-<LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
+<BR>[Calls]<UL><LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
 <LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 <LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
+<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;update_area1_buf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ht1621_F_Display_area1
+<BR>[Called By]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ht1621_F_Display_area1
 <LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Display_REC_Pro
 <LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Display_normal_main
 </UL>
@@ -1930,10 +1944,10 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 152 + Unknown Stack Size
 <LI>Call Chain = Display_weight_Data_Special &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
-<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;update_area1_buf
-<LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
+<BR>[Calls]<UL><LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
 <LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
+<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;update_area1_buf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Display_normal_main
 </UL>
@@ -1941,7 +1955,7 @@ Global Symbols
 <P><STRONG><a name="[9d]"></a>Display_Prehot_time</STRONG> (Thumb, 186 bytes, Stack size 24 bytes, ht1621_driver.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = Display_Prehot_time &rArr; Update_Display &rArr; Send_LBit
 </UL>
-<BR>[Calls]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Update_Display
+<BR>[Calls]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Update_Display
 <LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -1953,10 +1967,10 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_Filter_Data
 <LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
-<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 <LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;update_area1_buf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ht1621_F_Display_area1
+<BR>[Called By]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ht1621_F_Display_area1
 <LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Display_normal_main
 </UL>
 
@@ -1983,8 +1997,13 @@ Global Symbols
 <LI>Call Chain = Display_normal_main &rArr; Display_Inner_code &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_switch8
+<LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
+<LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfcmple
+<LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
+<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2uiz
 <LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
-<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 <LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Display_density_step
 <LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Display_animal_time
 <LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Display_density_mode
@@ -1994,13 +2013,8 @@ Global Symbols
 <LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;update_area1_buf
 <LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_scalbnf
 <LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfrcmple
-<LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
-<LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfcmple
-<LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
-<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
-<LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2uiz
 </UL>
-<BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ht1621_Display_area1
+<BR>[Called By]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ht1621_Display_area1
 </UL>
 
 <P><STRONG><a name="[107]"></a>Display_CALL_Pro</STRONG> (Thumb, 106 bytes, Stack size 16 bytes, ht1621_driver.o(.text))
@@ -2008,7 +2022,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 </UL>
-<BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ht1621_Display_area1
+<BR>[Called By]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ht1621_Display_area1
 </UL>
 
 <P><STRONG><a name="[108]"></a>Display_CAL_Pro</STRONG> (Thumb, 250 bytes, Stack size 24 bytes, ht1621_driver.o(.text))
@@ -2016,13 +2030,13 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 </UL>
-<BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ht1621_Display_area1
+<BR>[Called By]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ht1621_Display_area1
 </UL>
 
 <P><STRONG><a name="[10b]"></a>Display_CAL_INNER_Pro</STRONG> (Thumb, 76 bytes, Stack size 8 bytes, ht1621_driver.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = Display_CAL_INNER_Pro
 </UL>
-<BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ht1621_Display_area1
+<BR>[Called By]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ht1621_Display_area1
 </UL>
 
 <P><STRONG><a name="[109]"></a>Display_REC_Pro</STRONG> (Thumb, 236 bytes, Stack size 32 bytes, ht1621_driver.o(.text))
@@ -2030,24 +2044,24 @@ Global Symbols
 <LI>Call Chain = Display_REC_Pro &rArr; Display_weight_Data &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Read_EEPROM
-<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
+<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 <LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Display_weight_Data
 <LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;update_area1_buf
-<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 </UL>
-<BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ht1621_Display_area1
+<BR>[Called By]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ht1621_Display_area1
 </UL>
 
-<P><STRONG><a name="[10a]"></a>Display_CFG_Pro</STRONG> (Thumb, 214 bytes, Stack size 24 bytes, ht1621_driver.o(.text))
+<P><STRONG><a name="[10a]"></a>Display_CFG_Pro</STRONG> (Thumb, 228 bytes, Stack size 24 bytes, ht1621_driver.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = Display_CFG_Pro &rArr; __ARM_common_switch8
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_switch8
 <LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 </UL>
-<BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ht1621_Display_area1
+<BR>[Called By]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ht1621_Display_area1
 </UL>
 
-<P><STRONG><a name="[89]"></a>Ht1621_Display_area1</STRONG> (Thumb, 210 bytes, Stack size 8 bytes, ht1621_driver.o(.text))
+<P><STRONG><a name="[8a]"></a>Ht1621_Display_area1</STRONG> (Thumb, 216 bytes, Stack size 8 bytes, ht1621_driver.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 192 + Unknown Stack Size
 <LI>Call Chain = Ht1621_Display_area1 &rArr; Display_REC_Pro &rArr; Display_weight_Data &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
@@ -2060,21 +2074,21 @@ Global Symbols
 <LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Display_normal_main
 <LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Display_Boot_Info
 </UL>
-<BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Normal_Pro
+<BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Normal_Pro
 </UL>
 
-<P><STRONG><a name="[8c]"></a>Ht1621_Display_area2</STRONG> (Thumb, 232 bytes, Stack size 32 bytes, ht1621_driver.o(.text))
+<P><STRONG><a name="[8d]"></a>Ht1621_Display_area2</STRONG> (Thumb, 232 bytes, Stack size 32 bytes, ht1621_driver.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 160 + Unknown Stack Size
 <LI>Call Chain = Ht1621_Display_area2 &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
-<LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
+<BR>[Calls]<UL><LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
 <LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2uiz
 <LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
 <LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
 <LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Normal_Pro
+<BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Normal_Pro
 </UL>
 
 <P><STRONG><a name="[10d]"></a>Display_weight_unit</STRONG> (Thumb, 40 bytes, Stack size 4 bytes, ht1621_driver.o(.text))
@@ -2082,35 +2096,35 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_switch8
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ht1621_Display_area3
+<BR>[Called By]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ht1621_Display_area3
 </UL>
 
-<P><STRONG><a name="[8d]"></a>Ht1621_Display_area3</STRONG> (Thumb, 542 bytes, Stack size 20 bytes, ht1621_driver.o(.text))
+<P><STRONG><a name="[8e]"></a>Ht1621_Display_area3</STRONG> (Thumb, 542 bytes, Stack size 20 bytes, ht1621_driver.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = Ht1621_Display_area3 &rArr; Display_weight_unit &rArr; __ARM_common_switch8
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_switch8
 <LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Display_weight_unit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Normal_Pro
+<BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Normal_Pro
 </UL>
 
 <P><STRONG><a name="[10e]"></a>Display_F_CFG_Pro</STRONG> (Thumb, 404 bytes, Stack size 32 bytes, ht1621_driver.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 160 + Unknown Stack Size
 <LI>Call Chain = Display_F_CFG_Pro &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
-<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
+<BR>[Calls]<UL><LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 <LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_F_tmp
-<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 </UL>
-<BR>[Called By]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ht1621_F_Display_area1
+<BR>[Called By]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ht1621_F_Display_area1
 </UL>
 
 <P><STRONG><a name="[110]"></a>Display_inner_cal_sub</STRONG> (Thumb, 72 bytes, Stack size 16 bytes, ht1621_driver.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 </UL>
 
-<P><STRONG><a name="[82]"></a>Ht1621_F_Display_area1</STRONG> (Thumb, 44 bytes, Stack size 8 bytes, ht1621_driver.o(.text))
+<P><STRONG><a name="[83]"></a>Ht1621_F_Display_area1</STRONG> (Thumb, 44 bytes, Stack size 8 bytes, ht1621_driver.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 168 + Unknown Stack Size
 <LI>Call Chain = Ht1621_F_Display_area1 &rArr; Display_F_CFG_Pro &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
@@ -2118,14 +2132,14 @@ Global Symbols
 <LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Display_Inner_code
 <LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Display_weight_Data
 </UL>
-<BR>[Called By]<UL><LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Factory_Pro
+<BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Factory_Pro
 </UL>
 
-<P><STRONG><a name="[84]"></a>Ht1621_F_Display_area3</STRONG> (Thumb, 54 bytes, Stack size 0 bytes, ht1621_driver.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Factory_Pro
+<P><STRONG><a name="[85]"></a>Ht1621_F_Display_area3</STRONG> (Thumb, 54 bytes, Stack size 0 bytes, ht1621_driver.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Factory_Pro
 </UL>
 
-<P><STRONG><a name="[96]"></a>Key_Init</STRONG> (Thumb, 68 bytes, Stack size 24 bytes, key.o(.text))
+<P><STRONG><a name="[98]"></a>Key_Init</STRONG> (Thumb, 68 bytes, Stack size 24 bytes, key.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = Key_Init &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_AHBPeriphClockCmd
@@ -2145,8 +2159,8 @@ Global Symbols
 
 <P><STRONG><a name="[69]"></a>Get_Key_Code</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, key.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Normal_Pro
-<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Factory_Pro
+<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Normal_Pro
+<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Factory_Pro
 <LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;System_Init
 </UL>
 
@@ -2165,35 +2179,35 @@ Global Symbols
 <P><STRONG><a name="[112]"></a>Key_ON_OFF_Pro</STRONG> (Thumb, 58 bytes, Stack size 16 bytes, key.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = Key_ON_OFF_Pro &rArr; Update_Display &rArr; Send_LBit
 </UL>
-<BR>[Calls]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Update_Display
+<BR>[Calls]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Update_Display
 <LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Displaybuf_All_off
 <LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BL_Open
 <LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BL_Close
 </UL>
-<BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Pro
+<BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Pro
 </UL>
 
 <P><STRONG><a name="[113]"></a>Key_Zero_Pro</STRONG> (Thumb, 164 bytes, Stack size 8 bytes, key.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = Key_Zero_Pro &rArr; Cali_density_pro &rArr; __aeabi_ddiv
 </UL>
-<BR>[Calls]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Cali_density_pro
+<BR>[Calls]<UL><LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Cali_density_pro
 </UL>
-<BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Pro
+<BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Pro
 </UL>
 
-<P><STRONG><a name="[114]"></a>Key_Print_Pro</STRONG> (Thumb, 112 bytes, Stack size 16 bytes, key.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 204 + Unknown Stack Size
-<LI>Call Chain = Key_Print_Pro &rArr; Res_factory_pro &rArr; Del_rec_all &rArr; Write_EEPROM &rArr; Read_EEPROM &rArr; I2C_Recv_Byte &rArr; SET_I2C_INPUT &rArr; GPIO_Init
+<P><STRONG><a name="[114]"></a>Key_Print_Pro</STRONG> (Thumb, 116 bytes, Stack size 16 bytes, key.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 208 + Unknown Stack Size
+<LI>Call Chain = Key_Print_Pro &rArr; UART_PrintData &rArr; Printer_data &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_SendData_NJ_format2
+<BR>[Calls]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_PrintData
 <LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Res_factory_pro
 <LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Del_rec_all
 </UL>
-<BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Pro
+<BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Pro
 </UL>
 
 <P><STRONG><a name="[119]"></a>Key_Config_Pro</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, key.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Pro
+<BR><BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Pro
 </UL>
 
 <P><STRONG><a name="[115]"></a>Key_Save_Up_Pro</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, key.o(.text))
@@ -2202,33 +2216,33 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Save_Rec
 <LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 </UL>
-<BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Pro
+<BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Pro
 </UL>
 
-<P><STRONG><a name="[116]"></a>Key_Rec_Down_Pro</STRONG> (Thumb, 220 bytes, Stack size 8 bytes, key.o(.text))
+<P><STRONG><a name="[116]"></a>Key_Rec_Down_Pro</STRONG> (Thumb, 224 bytes, Stack size 8 bytes, key.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = Key_Rec_Down_Pro &rArr; __ARM_common_switch8
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_switch8
 </UL>
-<BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Pro
+<BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Pro
 </UL>
 
 <P><STRONG><a name="[285]"></a>Key_LONG_Cal_Confirm_Pro</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, key.o(.text), UNUSED)
 
-<P><STRONG><a name="[117]"></a>Key_Cal_Confirm_Pro</STRONG> (Thumb, 468 bytes, Stack size 24 bytes, key.o(.text))
+<P><STRONG><a name="[117]"></a>Key_Cal_Confirm_Pro</STRONG> (Thumb, 498 bytes, Stack size 24 bytes, key.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 164<LI>Call Chain = Key_Cal_Confirm_Pro &rArr; Write_EEPROM &rArr; Read_EEPROM &rArr; I2C_Recv_Byte &rArr; SET_I2C_INPUT &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stable_manual_break
 <LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Write_EEPROM
-<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfrcmple
 <LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2f
 <LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
+<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfrcmple
 </UL>
-<BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Pro
+<BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Pro
 </UL>
 
 <P><STRONG><a name="[11a]"></a>Key_Tare_Ret_Pro</STRONG> (Thumb, 100 bytes, Stack size 0 bytes, key.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Pro
+<BR><BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Pro
 </UL>
 
 <P><STRONG><a name="[118]"></a>Key_Group1_Pro</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, key.o(.text))
@@ -2236,12 +2250,12 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stable_manual_break
 </UL>
-<BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Pro
+<BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Pro
 </UL>
 
-<P><STRONG><a name="[88]"></a>Key_Pro</STRONG> (Thumb, 126 bytes, Stack size 8 bytes, key.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 212 + Unknown Stack Size
-<LI>Call Chain = Key_Pro &rArr; Key_Print_Pro &rArr; Res_factory_pro &rArr; Del_rec_all &rArr; Write_EEPROM &rArr; Read_EEPROM &rArr; I2C_Recv_Byte &rArr; SET_I2C_INPUT &rArr; GPIO_Init
+<P><STRONG><a name="[89]"></a>Key_Pro</STRONG> (Thumb, 126 bytes, Stack size 8 bytes, key.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 216 + Unknown Stack Size
+<LI>Call Chain = Key_Pro &rArr; Key_Print_Pro &rArr; UART_PrintData &rArr; Printer_data &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_switch8
 <LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Group1_Pro
@@ -2254,7 +2268,7 @@ Global Symbols
 <LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Zero_Pro
 <LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_ON_OFF_Pro
 </UL>
-<BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Normal_Pro
+<BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Normal_Pro
 </UL>
 
 <P><STRONG><a name="[10f]"></a>Get_F_tmp</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, key.o(.text))
@@ -2262,15 +2276,15 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[11f]"></a>Key_F_ON_OFF_Pro</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, key.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_F_Pro
+<BR><BR>[Called By]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_F_Pro
 </UL>
 
 <P><STRONG><a name="[121]"></a>Key_F_Config_Pro</STRONG> (Thumb, 52 bytes, Stack size 0 bytes, key.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_F_Pro
+<BR><BR>[Called By]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_F_Pro
 </UL>
 
 <P><STRONG><a name="[122]"></a>Key_F_Tare_Ret_Pro</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, key.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_F_Pro
+<BR><BR>[Called By]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_F_Pro
 </UL>
 
 <P><STRONG><a name="[11b]"></a>Key_F_Zero_Pro</STRONG> (Thumb, 126 bytes, Stack size 12 bytes, key.o(.text))
@@ -2278,24 +2292,24 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_switch8
 </UL>
-<BR>[Called By]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_F_Pro
+<BR>[Called By]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_F_Pro
 </UL>
 
 <P><STRONG><a name="[120]"></a>Key_F_Print_Pro</STRONG> (Thumb, 50 bytes, Stack size 0 bytes, key.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_F_Pro
+<BR><BR>[Called By]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_F_Pro
 </UL>
 
-<P><STRONG><a name="[11c]"></a>Key_F_Up_Pro</STRONG> (Thumb, 390 bytes, Stack size 8 bytes, key.o(.text))
+<P><STRONG><a name="[11c]"></a>Key_F_Up_Pro</STRONG> (Thumb, 376 bytes, Stack size 8 bytes, key.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = Key_F_Up_Pro &rArr; motor_run_proc
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_switch8
 <LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_run_proc
-<LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
-<LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
 <LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
 <LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
 </UL>
-<BR>[Called By]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_F_Pro
+<BR>[Called By]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_F_Pro
 </UL>
 
 <P><STRONG><a name="[11d]"></a>Key_F_Down_Pro</STRONG> (Thumb, 192 bytes, Stack size 8 bytes, key.o(.text))
@@ -2303,12 +2317,12 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_switch8
 <LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_run_proc
-<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
-<LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
 <LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
 <LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
+<LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
 </UL>
-<BR>[Called By]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_F_Pro
+<BR>[Called By]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_F_Pro
 </UL>
 
 <P><STRONG><a name="[11e]"></a>Key_F_Confirm_Pro</STRONG> (Thumb, 326 bytes, Stack size 24 bytes, key.o(.text))
@@ -2317,10 +2331,10 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Write_EEPROM
 <LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_switch8
 </UL>
-<BR>[Called By]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_F_Pro
+<BR>[Called By]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_F_Pro
 </UL>
 
-<P><STRONG><a name="[81]"></a>Key_F_Pro</STRONG> (Thumb, 84 bytes, Stack size 8 bytes, key.o(.text))
+<P><STRONG><a name="[82]"></a>Key_F_Pro</STRONG> (Thumb, 84 bytes, Stack size 8 bytes, key.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 172<LI>Call Chain = Key_F_Pro &rArr; Key_F_Confirm_Pro &rArr; Write_EEPROM &rArr; Read_EEPROM &rArr; I2C_Recv_Byte &rArr; SET_I2C_INPUT &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_switch8
@@ -2333,7 +2347,7 @@ Global Symbols
 <LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_F_Config_Pro
 <LI><a href="#[11f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_F_ON_OFF_Pro
 </UL>
-<BR>[Called By]<UL><LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Factory_Pro
+<BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Factory_Pro
 </UL>
 
 <P><STRONG><a name="[9a]"></a>EPM7064_PIN_Init</STRONG> (Thumb, 178 bytes, Stack size 40 bytes, epm7064s.o(.text))
@@ -2380,7 +2394,7 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f030.o(RESET)
 </UL>
 <P><STRONG><a name="[c0]"></a>Get_Raw</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, epm7064s.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;filter
+<BR><BR>[Called By]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;filter
 </UL>
 
 <P><STRONG><a name="[129]"></a>SET_I2C_OUTPUT</STRONG> (Thumb, 38 bytes, Stack size 16 bytes, i2c.o(.text))
@@ -2389,7 +2403,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_AHBPeriphClockCmd
 <LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2c_Init
+<BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2c_Init
 <LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_Recv_Byte
 <LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_Send_Byte
 <LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_Stop
@@ -2406,7 +2420,7 @@ Global Symbols
 <LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_Send_Byte
 </UL>
 
-<P><STRONG><a name="[97]"></a>I2c_Init</STRONG> (Thumb, 56 bytes, Stack size 16 bytes, i2c.o(.text))
+<P><STRONG><a name="[99]"></a>I2c_Init</STRONG> (Thumb, 56 bytes, Stack size 16 bytes, i2c.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 68<LI>Call Chain = I2c_Init &rArr; I2C_Stop &rArr; SET_I2C_OUTPUT &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_AHBPeriphClockCmd
@@ -2479,7 +2493,7 @@ Global Symbols
 <LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI_ClearITPendingBit
 <LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI_Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_Config
+<BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_Config
 </UL>
 
 <P><STRONG><a name="[134]"></a>Set_RTC_Date</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, rtc.o(.text), UNUSED)
@@ -2495,14 +2509,14 @@ Global Symbols
 <LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_SetAlarm
 <LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_SetTime
 </UL>
-<BR>[Called By]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_Config
+<BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_Config
 </UL>
 
 <P><STRONG><a name="[139]"></a>Set_RTC_Time</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, rtc.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_SetTime
 </UL>
 
-<P><STRONG><a name="[91]"></a>RTC_Config</STRONG> (Thumb, 80 bytes, Stack size 16 bytes, rtc.o(.text))
+<P><STRONG><a name="[93]"></a>RTC_Config</STRONG> (Thumb, 80 bytes, Stack size 16 bytes, rtc.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 92<LI>Call Chain = RTC_Config &rArr; RTC_TimeRegulate &rArr; RTC_SetTime &rArr; RTC_EnterInitMode
 </UL>
 <BR>[Calls]<UL><LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_RTCCLKCmd
@@ -2638,17 +2652,17 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 </UL>
 
-<P><STRONG><a name="[b7]"></a>__2sprintf</STRONG> (Thumb, 36 bytes, Stack size 32 bytes, noretval__2sprintf.o(.text))
+<P><STRONG><a name="[b6]"></a>__2sprintf</STRONG> (Thumb, 36 bytes, Stack size 32 bytes, noretval__2sprintf.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 128 + Unknown Stack Size
 <LI>Call Chain = __2sprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sputc
 <LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_char_common
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_SendData_NJ_format1
-<LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Printer_data
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_SendData_NJ_format2
-<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ht1621_Display_area2
+<BR>[Called By]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Printer_data
+<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_SendData_NJ_format2
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_SendData_NJ_format1
+<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ht1621_Display_area2
 <LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Display_F_CFG_Pro
 <LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Display_REC_Pro
 <LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Display_normal_main
@@ -2694,8 +2708,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_char_common
 </UL>
 
-<P><STRONG><a name="[8e]"></a>abs</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, abs.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Normal_Pro
+<P><STRONG><a name="[8f]"></a>abs</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, abs.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Normal_Pro
 </UL>
 
 <P><STRONG><a name="[130]"></a>memcmp</STRONG> (Thumb, 90 bytes, Stack size 8 bytes, memcmp.o(.text))
@@ -2711,6 +2725,7 @@ Global Symbols
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_buf_data
 <LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;filter_Average2
 <LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Init
+<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Printer_TITLE
 <LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Display_Prehot_time
 <LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Display_Model_Info
 <LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stable_load_zer0
@@ -2748,8 +2763,8 @@ Global Symbols
 <P><STRONG><a name="[5e]"></a>__aeabi_d2f</STRONG> (Thumb, 0 bytes, Stack size 12 bytes, d2f.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = __aeabi_d2f
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;filter_ad_NTC
-<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Cali_density_pro
+<BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;filter_ad_NTC
+<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Cali_density_pro
 <LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;update_new_data
 <LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;point2_cal_proc_inner
 <LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;point2_cal_proc
@@ -2765,7 +2780,7 @@ Global Symbols
 <P><STRONG><a name="[5b]"></a>__aeabi_dadd</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, daddsub.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __aeabi_dadd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Cali_density_pro
+<BR>[Called By]<UL><LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Cali_density_pro
 <LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;update_new_data
 <LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;point2_cal_proc_inner
 <LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;point2_cal_proc
@@ -2783,7 +2798,7 @@ Global Symbols
 <P><STRONG><a name="[74]"></a>__aeabi_dsub</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, daddsub.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __aeabi_dsub
 </UL>
-<BR>[Called By]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Cali_density_pro
+<BR>[Called By]<UL><LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Cali_density_pro
 <LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;display_to_int
 <LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_F_Down_Pro
 </UL>
@@ -2796,7 +2811,7 @@ Global Symbols
 <P><STRONG><a name="[c4]"></a>__aeabi_drsub</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, daddsub.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __aeabi_drsub
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;filter_ad_NTC
+<BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;filter_ad_NTC
 </UL>
 
 <P><STRONG><a name="[14c]"></a>_drsb</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, daddsub.o(.text), UNUSED)
@@ -2807,8 +2822,8 @@ Global Symbols
 <P><STRONG><a name="[5c]"></a>__aeabi_ddiv</STRONG> (Thumb, 0 bytes, Stack size 88 bytes, ddiv.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = __aeabi_ddiv
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;filter_ad_NTC
-<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Cali_density_pro
+<BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;filter_ad_NTC
+<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Cali_density_pro
 <LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;point2_cal_proc_inner
 <LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;point2_cal_proc
 <LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_Line4_data
@@ -2844,7 +2859,7 @@ Global Symbols
 <P><STRONG><a name="[5a]"></a>__aeabi_ui2d</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, dflti.o(.text))
 <BR><BR>[Calls]<UL><LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d_normalise
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;filter_ad_NTC
+<BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;filter_ad_NTC
 <LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;point2_cal_proc_inner
 <LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;point2_cal_proc
 <LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_Line4_data
@@ -2855,7 +2870,7 @@ Global Symbols
 <P><STRONG><a name="[5d]"></a>__aeabi_dmul</STRONG> (Thumb, 0 bytes, Stack size 48 bytes, dmul.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = __aeabi_dmul
 </UL>
-<BR>[Called By]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Cali_density_pro
+<BR>[Called By]<UL><LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Cali_density_pro
 <LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_Line4_data
 <LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Display_weight_Data
 </UL>
@@ -2863,12 +2878,12 @@ Global Symbols
 <P><STRONG><a name="[28f]"></a>_dmul</STRONG> (Thumb, 592 bytes, Stack size 48 bytes, dmul.o(.text), UNUSED)
 
 <P><STRONG><a name="[72]"></a>__aeabi_f2d</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, f2d.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_SendData_NJ_format1
-<LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Printer_data
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_SendData_NJ_format2
-<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ht1621_Display_area2
-<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Normal_Pro
-<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Cali_density_pro
+<BR><BR>[Called By]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Printer_data
+<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_SendData_NJ_format2
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_SendData_NJ_format1
+<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ht1621_Display_area2
+<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Normal_Pro
+<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Cali_density_pro
 <LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;update_new_data
 <LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;point2_cal_proc_inner
 <LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;display_to_int
@@ -2886,9 +2901,9 @@ Global Symbols
 <P><STRONG><a name="[54]"></a>__aeabi_fdiv</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, fdiv.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_fdiv
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;filter_ad_NTC
-<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ht1621_Display_area2
-<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Cali_density_pro
+<BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;filter_ad_NTC
+<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ht1621_Display_area2
+<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Cali_density_pro
 <LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;point2_cal_proc_inner
 <LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;point2_cal_proc
 <LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_Linecal10_para
@@ -2906,7 +2921,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[4d]"></a>__aeabi_f2uiz</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, ffixui.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ht1621_Display_area2
+<BR><BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ht1621_Display_area2
 <LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;point2_cal_proc_inner
 <LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;point2_cal_proc
 <LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_Line4_data
@@ -2931,7 +2946,7 @@ Global Symbols
 <P><STRONG><a name="[4a]"></a>__aeabi_ui2f</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, fflti.o(.text))
 <BR><BR>[Calls]<UL><LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f_normalise
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;filter_ad_NTC
+<BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;filter_ad_NTC
 <LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;update_new_data
 <LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_Line10_data
 <LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_Linecal10_para
@@ -2979,11 +2994,11 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__printf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
+<BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
 
 <P><STRONG><a name="[26]"></a>_sputc</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, _sputc.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
+<BR><BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> noretval__2sprintf.o(.text)
 </UL>
@@ -2996,8 +3011,8 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fcheck_NaN2
 <LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_cmpreturn
 </UL>
-<BR>[Called By]<UL><LI><a href="#[170]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_frcmple
-<LI><a href="#[16f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fcmple
+<BR>[Called By]<UL><LI><a href="#[16f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fcmple
+<LI><a href="#[170]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_frcmple
 </UL>
 
 <P><STRONG><a name="[35]"></a>__rt_locale</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, rt_locale_intlibspace.o(.text))
@@ -3134,11 +3149,11 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __ARM_common_switch8
 </UL>
 <BR>[Called By]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Printer_TABLE
-<LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Printer_data
-<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Pro
-<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_F_Pro
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ht1621_Display_area3
-<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ht1621_Display_area1
+<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Printer_data
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Pro
+<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_F_Pro
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ht1621_Display_area3
+<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ht1621_Display_area1
 <LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;point4_cal_proc
 <LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;point10_cal_proc
 <LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_F_Confirm_Pro
@@ -3170,7 +3185,7 @@ Global Symbols
 <P><STRONG><a name="[4b]"></a>__aeabi_fadd</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, faddsub.o(x$fpl$fadd))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_fadd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ht1621_Display_area2
+<BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ht1621_Display_area2
 <LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;update_new_data
 <LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_Line4_data
 <LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_Line10_data
@@ -3196,8 +3211,8 @@ Global Symbols
 <P><STRONG><a name="[4c]"></a>__aeabi_fmul</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, fmul.o(x$fpl$fmul))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_fmul
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;filter_ad_NTC
-<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ht1621_Display_area2
+<BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;filter_ad_NTC
+<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ht1621_Display_area2
 <LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;update_new_data
 <LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_Line10_data
 <LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_MachineVarible
@@ -3212,7 +3227,7 @@ Global Symbols
 <P><STRONG><a name="[7b]"></a>__aeabi_cfrcmple</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, frlef.o(x$fpl$frleqf))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __aeabi_cfrcmple
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;filter_ad_NTC
+<BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;filter_ad_NTC
 <LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;update_new_data
 <LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Cal_Confirm_Pro
 <LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Display_normal_main
@@ -3225,9 +3240,9 @@ Global Symbols
 <P><STRONG><a name="[7a]"></a>__aeabi_fsub</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, faddsub.o(x$fpl$fsub))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_fsub
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;filter_ad_NTC
-<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Normal_Pro
-<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Cali_density_pro
+<BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;filter_ad_NTC
+<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Normal_Pro
+<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Cali_density_pro
 <LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;update_new_data
 <LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_F_Down_Pro
 </UL>
@@ -3248,45 +3263,55 @@ Local Symbols
 <P><STRONG><a name="[73]"></a>display_to_int</STRONG> (Thumb, 144 bytes, Stack size 24 bytes, global.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = display_to_int &rArr; __aeabi_fmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
+<BR>[Calls]<UL><LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
+<LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2uiz
+<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
 <LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 <LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
 <LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
-<LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
-<LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2uiz
-<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 </UL>
 <BR>[Called By]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;update_new_data
 </UL>
 
-<P><STRONG><a name="[ba]"></a>Printer_data</STRONG> (Thumb, 210 bytes, Stack size 32 bytes, uart.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_PrintStr
+<P><STRONG><a name="[b9]"></a>Printer_data</STRONG> (Thumb, 210 bytes, Stack size 32 bytes, uart.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 160 + Unknown Stack Size
+<LI>Call Chain = Printer_data &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
+</UL>
+<BR>[Calls]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_PrintStr
 <LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_PrintChar
-<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Printer_EN_MODE
+<LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Printer_EN_MODE
 <LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_switch8
-<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 <LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_PrintData
 </UL>
 
-<P><STRONG><a name="[bb]"></a>Printer_EN_MODE</STRONG> (Thumb, 16 bytes, Stack size 4 bytes, uart.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_PrintChar
+<P><STRONG><a name="[ba]"></a>Printer_EN_MODE</STRONG> (Thumb, 16 bytes, Stack size 4 bytes, uart.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = Printer_EN_MODE
+</UL>
+<BR>[Calls]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_PrintChar
 </UL>
 <BR>[Called By]<UL><LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Printer_TITLE
-<LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Printer_data
+<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Printer_data
 </UL>
 
-<P><STRONG><a name="[bd]"></a>Printer_TITLE</STRONG> (Thumb, 92 bytes, Stack size 8 bytes, uart.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_PrintStr
+<P><STRONG><a name="[bd]"></a>Printer_TITLE</STRONG> (Thumb, 98 bytes, Stack size 8 bytes, uart.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = Printer_TITLE &rArr; UART_PrintStr
+</UL>
+<BR>[Calls]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_PrintStr
 <LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_PrintChar
-<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Printer_EN_MODE
+<LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Printer_EN_MODE
+<LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 </UL>
 <BR>[Called By]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_PrintData
 </UL>
 
-<P><STRONG><a name="[be]"></a>Printer_TABLE</STRONG> (Thumb, 62 bytes, Stack size 4 bytes, uart.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_PrintStr
+<P><STRONG><a name="[be]"></a>Printer_TABLE</STRONG> (Thumb, 62 bytes, Stack size 4 bytes, uart.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = Printer_TABLE &rArr; __ARM_common_switch8
+</UL>
+<BR>[Calls]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_PrintStr
 <LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_PrintChar
 <LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_switch8
 </UL>
@@ -3298,19 +3323,19 @@ Local Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 </UL>
-<BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;filter
+<BR>[Called By]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;filter
 </UL>
 
 <P><STRONG><a name="[c1]"></a>filter_total1</STRONG> (Thumb, 66 bytes, Stack size 16 bytes, filter.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = filter_total1
 </UL>
-<BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;filter
+<BR>[Called By]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;filter
 </UL>
 
 <P><STRONG><a name="[c2]"></a>filter_total2</STRONG> (Thumb, 40 bytes, Stack size 16 bytes, filter.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = filter_total2
 </UL>
-<BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;filter
+<BR>[Called By]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;filter
 </UL>
 
 <P><STRONG><a name="[e0]"></a>TI2_Config</STRONG> (Thumb, 42 bytes, Stack size 20 bytes, stm32f0xx_tim.o(.text), UNUSED)
@@ -3347,7 +3372,7 @@ Local Symbols
 <BR>[Calls]<UL><LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
 <LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
 </UL>
-<BR>[Called By]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Update_Display
+<BR>[Called By]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Update_Display
 <LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Send_Com
 </UL>
 
@@ -3358,7 +3383,7 @@ Local Symbols
 <LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
 <LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Send_LBit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_1621
+<BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_1621
 </UL>
 
 <P><STRONG><a name="[127]"></a>epm7064s_filter_raw</STRONG> (Thumb, 112 bytes, Stack size 16 bytes, epm7064s.o(.text))
@@ -3375,7 +3400,7 @@ Local Symbols
 <LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SET_I2C_OUTPUT
 <LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Wait
 </UL>
-<BR>[Called By]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2c_Init
+<BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2c_Init
 <LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Write_EEPROM
 <LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Read_EEPROM
 </UL>
@@ -3388,7 +3413,7 @@ Local Symbols
 <LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SET_I2C_OUTPUT
 <LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Wait
 </UL>
-<BR>[Called By]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2c_Init
+<BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2c_Init
 <LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Write_EEPROM
 <LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Read_EEPROM
 </UL>
@@ -3408,7 +3433,7 @@ Local Symbols
 </UL>
 
 <P><STRONG><a name="[12c]"></a>Wait</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, i2c.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2c_Init
+<BR><BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2c_Init
 <LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_Recv_Byte
 <LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_Send_Byte
 <LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_Stop
