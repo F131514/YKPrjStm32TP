@@ -1377,7 +1377,7 @@ static Uint32 manual_zer0_data;
 void    update_new_data(void)
 	{
 	 float  net_tmp;
-	 Uint32 weight1,weight2,weight_tmp;
+	 Uint32 weight1,weight2,weight3,weight_tmp;
 	 	 //////////////////////////////////////////////////	  
      weight1 = Get_Filter_Data();                //
      // //线性校准 使用的是最原始的数据
@@ -1441,9 +1441,12 @@ void    update_new_data(void)
       }
   
      weight2 = abs(weight_tmp - zer0_data);    //得到毛重 内码
-
+     //first load track
+			
+		 auto_loadtrack(weight2); 
+			
 		 if(1 == flag_load_track_enable)
-      new_data = stable_load_zer0(weight2);    //稳定跟踪功能
+      new_data = auto_repetioncheck(weight2);    //稳定跟踪功能
      else
       new_data = weight2; 
      ///////////////////////////////

@@ -7,7 +7,7 @@
 #include "led.h"
 #include "I2C.h"
 
-//#define KEY_TYPE_MECHA    1
+#define KEY_TYPE_MECHA    1
 //////
 Uint8 const	SAMPLE_COUNT[]={5,5,10,20,50,100,100};
 Uint8 const ANIMAL_TIME[] ={10,10,15,20,30,30};

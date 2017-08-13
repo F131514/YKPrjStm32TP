@@ -577,60 +577,50 @@ void   auto_zer0(Uint32 weight1)
 //10  载荷稳定后的零点自动跟踪,
 //来保证稳定后的变化量施加给零点
 //////////////////////////////////////////
-
-Uint32  stable_load_zer0(Uint32 weight2)
-	{	
-      //起到 拦截 和 修正 的作用
-           Uint32   ad_tmp;          // 
-    static Uint32   lock_ad_last     ; //上次锁定的重量(纯重量内码)
+void auto_loadtrack(Uint32 weight2)
+{
+    static Uint32 trackcnt = 0; //
+	  static Uint32 lock_ad_last = 0;
+	  Uint32 weigh_tmp;
+	  if((stable_flag==TRUE)&&(weight2 > 100*inner_code_step)&&(TRUE==point10_cal_ok)&&(FALSE==point2_cal_start)){
+				trackcnt++;
+				if(trackcnt > 8) {
+				 	  trackcnt = 0;
+					  weigh_tmp = abs(weight2-lock_ad_last);   //比较重量漂移了多少 
+            if(weigh_tmp > (2*inner_code_step+inner_code_step/2)) {  //重量变化量太大了，认为是真实重量
+                lock_ad_last = weight2;
+            } else {
+                if(weight2 > lock_ad_last) 
+                   zer0_data = zer0_data + weigh_tmp;
+                else
+                   zer0_data = zer0_data - weigh_tmp;
+								
+								lock_ad_last = weight2;
+				    } 	
+				}else {
+			      lock_ad_last = weight2;
+			  }
+    } else {
+		    trackcnt = 0;
+		}				
+}
+Uint32  auto_repetioncheck(Uint32 weight2)
+{	
+    static Uint32 lock_ad_last     ; //上次锁定的重量(纯重量内码)
     
-    if(weight2 < 100*inner_code_step) 
-      {
-       lock_ad_last = 0;
-       return(weight2);
-      }
-      
-    if(0==load_track_cnt)
-       { //首次进入 首先是重复性检查
-      
-         if(abs(weight2-lock_ad_last) > (3 * inner_code_step)) //重复性检查超过3个显示码
-           {                                                //更新此次重量
+    if((weight2 > 100*inner_code_step)&&(0 == load_track_cnt)) {
+        if(abs(weight2-lock_ad_last) > (3 * inner_code_step)) {
+  			    //更新此次重量
             lock_ad_last = weight2;
-           }
-         else
-           {
+        }else {
             lock_ad_last = (lock_ad_last*3+weight2*7)/10;        //小于3个取平均值
            }  
          load_track_cnt++;
-        }
-    else
-       {   
-        ///////////////////////////////////////////////       
-        load_track_cnt++;
-        if(load_track_cnt > 12)    //载荷跟踪的速度
-          {//载荷跟踪时间到了
-            load_track_cnt = 1; 
-            ad_tmp = abs(weight2-lock_ad_last);   //比较重量漂移了多少 
-            
-            if(ad_tmp > (2*inner_code_step+inner_code_step/2))
-               {  //重量变化量太大了，载荷跟踪自杀 对数据不予修正
-                lock_ad_last = weight2;
-                //flag_load_track_enable = 0;
-                //load_track_cnt = 0;            
-               }
-            else     
-               {    //这种情况下是 数据变化稍微快了一点，或者累计变化了2个，
-                    //但是还没有破坏稳定 调整零点 每次调整1个码
-                if(weight2 > lock_ad_last) 
-                   zer0_data = zer0_data + ad_tmp;
-                else
-                   zer0_data = zer0_data - ad_tmp;
-               }
-          }//////////////时间判断OVER      
-        } ////////////////
-       
-       return(lock_ad_last);
-	}
+     } else {
+		     lock_ad_last = weight2;
+		 }
+	     return(lock_ad_last);
+}
 	
 	
 	
