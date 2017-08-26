@@ -1412,7 +1412,7 @@ void    update_new_data(void)
         if(0 == power_on_clr_cnt)
 				 {
 					power_on_flag = FALSE;
-		 	    if(abs(weight_tmp-zer0_data) < full_code/START_ZER0_MAX) //开机置0 范围
+		 	    if(abs(weight_tmp-zer0_data) < (full_code * START_ZER0_MAX /100)) //开机置0 范围
              {
               zer0_data = weight_tmp;          //??????
              }
@@ -1426,7 +1426,7 @@ void    update_new_data(void)
 		 if(TRUE == do_zer0_flag)	 
       {
        do_zer0_flag = FALSE;
-       if(abs(weight_tmp-manual_zer0_data)<((full_code*USER_ZER0_MAX)/100)) 
+       if(abs(weight_tmp-manual_zer0_data)< (full_code * USER_ZER0_MAX /100)) 
           {
            zer0_data = weight_tmp;
            tare_data = 0;
@@ -1443,12 +1443,14 @@ void    update_new_data(void)
      weight2 = abs(weight_tmp - zer0_data);    //得到毛重 内码
      //first load track
 			
-		 auto_loadtrack(weight2); 
-			
+		 new_data = auto_loadtrack(weight2); 
+		
+			/*	
 		 if(1 == flag_load_track_enable)
       new_data = auto_repetioncheck(weight2);    //稳定跟踪功能
      else
       new_data = weight2; 
+		*/
      ///////////////////////////////
 		 if(TRUE == point2_cal_ok)               //???????
       {

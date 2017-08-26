@@ -343,111 +343,7 @@ static Uint32  filter0_proc(void)
      return raw_data2_last;
    } 
      
-     
-///////////////////////////////////////////////////////////////////
-//         滤波算法
-//
-//(1) 取渐进平均值             1/16
-//(2) 取渐进平均值             1/16
-//(3) 取排序后的平均值 8个取中间4个
-//(4) 取平均值                  1/8
-//
-/*////////////////////////////////////////////////////////////////////
-void  filter_a(void)
-{     
-      static Uint32 ad_stable_cnt;
-      Uint32 ad_sample_dat;
-      
-      ad_sample_dat = filter0_proc();      //如果处于快速变化阶段
-      ///////////////////////////////////////////////////////////
-      if(1==fast_filter_flag)
-         {
-          stable_flag    = FALSE;
-          ad_stable_cnt  = 0;
-          Average_AD_A   = ad_sample_dat;  //快速变化阶段
-          Average_AD_B   = Average_AD_A;
-          filter_data_final = Average_AD_B;         
- 	     }     
- 	  else
- 	   {
- 	     /////////////////////////////////////////////////
- 	     if(0==flag_ad_buf_full1) //初次建立缓存还没有填充满
- 	         {
- 	          AD_Buf_Raw1[ad_buf_index1++] = ad_sample_dat;////save 
-             }
-          else
-             {
-              ad_stable_cnt++;
-           
-              // 填充满后 再开始稳定计时间 根据时间来取舍数据的权重 
-              if(ad_stable_cnt<4)
-                 {
-                   if(0 == ad_buf_index1)
- 	                 AD_Buf_Raw1[ad_buf_index1++] = (ad_sample_dat*9+AD_Buf_Raw1[AD_AVER_CNT1-1])/10;
- 	               else
- 	                 AD_Buf_Raw1[ad_buf_index1++] = (ad_sample_dat*9+AD_Buf_Raw1[ad_buf_index1-1])/10;     
-                 }
-              else //if(ad_stable_cnt<6) 
-                 {
-                   if(0 == ad_buf_index1)
- 	                 AD_Buf_Raw1[ad_buf_index1++] = (ad_sample_dat*8+AD_Buf_Raw1[AD_AVER_CNT1-1]*2)/10;
- 	               else
- 	                 AD_Buf_Raw1[ad_buf_index1++] = (ad_sample_dat*8+AD_Buf_Raw1[ad_buf_index1-1]*2)/10;  
-                 }
-             
- 	          }
- 	      	  ////////////////////////////////////得到新数据  
- 	          if(AD_AVER_CNT1 == ad_buf_index1)
- 	           {
- 	            flag_ad_buf_full1 = 1; 
-                ad_buf_index1 = 0;
-               }   
- 	          Average_AD_A = get_buf_data();   //获取排序后的中间数据的平均值
- 	          /////////////////////////////////////////////////////////////////////
- 	          ////////////////////////////////////////////////////然后再取一次平均值
- 	          Average_AD_B = filter_Average2(Average_AD_A);
- 	          ////////////////////////////////////////////////判断稳定以及 开启自动跟踪功能 
-              if(abs(filter_data_final-Average_AD_B) < 2*inner_code_step)
- 	           {
- 	             stable_times++;
- 	             if((FALSE==point10_cal_ok)||(TRUE==point2_cal_start))
- 	               {
- 	                 if(stable_times > 14)
- 	                    stable_flag = TRUE;   
- 	               }
- 	             else  
- 	               {
- 	                if(stable_times > 14)
- 	                   stable_flag = TRUE;
- 	               } 
- 	           }
-              else
-               {
-                 stable_times = 0;
-               }
-               filter_data_final = Average_AD_B;
-              //////////////////////////////////////////////////////// 
-              if(TRUE == stable_flag)       //稳定后开启自动跟踪功能
-                 flag_auto_track_enable = 1;
-              else
-                {
-                 flag_auto_track_enable = 0;
-                 auto_track_cnt         = 0;
-                } 
- 	          //载荷跟踪的条件(1) 稳定
- 	          //              (2) 有一定的重量存在 
- 	          //              (3) 不在用户校准过程中
- 	          //              (4) 线性校准数据起作用的时候
-              if((stable_flag==TRUE)&&(TRUE==point10_cal_ok)&&(FALSE==point2_cal_start)) //稳定一段时间且不在任何校准状态
-                flag_load_track_enable = 1;
-              else
-               {
-                flag_load_track_enable = 0;
-                load_track_cnt         = 0;
-               }              
-         }         
- }
-*/ 
+
 ///////////////////////////////////////////////////////////////////////////////
 void  filter(void)
 {     
@@ -554,10 +450,9 @@ void   auto_zer0(Uint32 weight1)
   Uint32 x;
   
   auto_track_cnt++;
-  if(2 == auto_track_cnt)
+  if(3 == auto_track_cnt)
      {
         auto_track_cnt = 0;
-        //if(data_new < AUTO_0_SETUP * inner_code_step)
         x = abs(weight1-zer0_data);
         if(x < 7*inner_code_step)
           {
@@ -577,33 +472,37 @@ void   auto_zer0(Uint32 weight1)
 //10  载荷稳定后的零点自动跟踪,
 //来保证稳定后的变化量施加给零点
 //////////////////////////////////////////
-void auto_loadtrack(Uint32 weight2)
+Uint32 auto_loadtrack(Uint32 weight2)
 {
     static Uint32 trackcnt = 0; //
 	  static Uint32 lock_ad_last = 0;
 	  Uint32 weigh_tmp;
 	  if((stable_flag==TRUE)&&(weight2 > 100*inner_code_step)&&(TRUE==point10_cal_ok)&&(FALSE==point2_cal_start)){
 				trackcnt++;
-				if(trackcnt > 8) {
-				 	  trackcnt = 0;
+			  if(1 == trackcnt) {
+					lock_ad_last = weight2;
+				} else if(0 == trackcnt % 6) {
 					  weigh_tmp = abs(weight2-lock_ad_last);   //比较重量漂移了多少 
-            if(weigh_tmp > (2*inner_code_step+inner_code_step/2)) {  //重量变化量太大了，认为是真实重量
-                lock_ad_last = weight2;
-            } else {
-                if(weight2 > lock_ad_last) 
+            if(weigh_tmp < 4*inner_code_step) {  //重量变化量太大了，认为是真实重量
+               if(weight2 > lock_ad_last) 
                    zer0_data = zer0_data + weigh_tmp;
                 else
                    zer0_data = zer0_data - weigh_tmp;
-								
-								lock_ad_last = weight2;
-				    } 	
-				}else {
-			      lock_ad_last = weight2;
+				    } else {
+						    lock_ad_last = weight2;
+							  stable_manual_break();
+						}
+						
+				} else {
+			      ;
 			  }
     } else {
 		    trackcnt = 0;
-		}				
+			  lock_ad_last = weight2; 
+		}
+		return(lock_ad_last);
 }
+
 Uint32  auto_repetioncheck(Uint32 weight2)
 {	
     static Uint32 lock_ad_last     ; //上次锁定的重量(纯重量内码)

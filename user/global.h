@@ -10,7 +10,7 @@
 #define      CHINESE                 0
 #define      ENGLISH                 1
 //是否内校准版本
-#define INNER_CAL_VERSION            0  //???????
+#define INNER_CAL_VERSION            1  //???????
 
 #define DOUBLE_DIVISION              0  //双分度版本
 
@@ -158,9 +158,10 @@
 
 //#define   WEIGHT_TIP_VALUE        200.0090
 //#define   WEIGHT_ALM_VALUE        205.0090
-///开机置零范围 10%  20%
-#define   START_ZER0_MAX           5  //????????  
-#define    USER_ZER0_MAX           4  //????????
+///开机置零范围 10% 
+//手动置零范围   2%
+#define   START_ZER0_MAX           10  //????????  
+#define    USER_ZER0_MAX           2  //????????
 
 //单位转换常量
 #define    G_TO_MG                1000
