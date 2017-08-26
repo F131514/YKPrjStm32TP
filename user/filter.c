@@ -567,13 +567,17 @@ float  filter_ad_NTC(Uint16 ntc_data)
            Uint8   pass,i;
            static  Uint8 index = 0;
            ntc_buf[index++] = ntc_data;
-           if(4 == index)
+ 
+					 if(16 != index) {
+            return(temp_float);
+					 } else {
+						 
            index = 0;
            ////////////////////////////////////////
 	       sum = 0;
-	       for(i=0;i<4;i++)
+	       for(i=0;i<16;i++)
 	        sum+=ntc_buf[i];  
-	       sum = sum/4;
+	       sum = sum/16;
 	       /////////////////////////////////根据此数据倒推出电阻式多大
 	       x = (10*sum)/(4096.00001-sum);
 	       ////////////////////////////////根据此电阻值计算出温度
@@ -598,10 +602,12 @@ float  filter_ad_NTC(Uint16 ntc_data)
 	             i++;   
 	           }
 	          //////////////////计算温度 
-	          x =ntc_start[i]-(x-ntc_table[i])/(ntc_table[i-1]-ntc_table[i])*5;
-	          //return(33.3);
+	          x = ntc_start[i]-(x-ntc_table[i])/(ntc_table[i-1]-ntc_table[i])*5;
+						 
+					  x = x-7;
 	          return(x); 
 	          } 
+					}
 	 }        
 ///////////////////////////////////////////////////////////////////
 	

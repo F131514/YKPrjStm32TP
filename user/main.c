@@ -28,6 +28,23 @@ Uint32 const machine_speed[4][3] = {
 };
 
 
+void PowerOnDisplayCheck(void)
+{
+  if(FALSE == flag_LOGO)
+	   display_buffer[0] &= (~FLAG_LOGO_0);
+
+  if(0 == (selemode & MODE_PCS))
+	   display_buffer[12] &= (~FLAG_PCS_12);
+	if(0 == (selemode & MODE_DENSITY))
+	   display_buffer[12] &= (~FLAG_DENSITY_12);
+	if(0 == (selemode & MODE_CHECK))
+	   display_buffer[12] &= (~FLAG_CHECK_12);
+	if(0 == (selemode & MODE_100))
+	   display_buffer[12] &= (~FLAG_PERCENT_12);
+	if(0 == (selemode & MODE_ANIMAL))
+	   display_buffer[12] &= (~FLAG_ANIMAL_12);
+}
+
 ///////////////////////////////////////////////////////////
 //
 ///////////////////////////////////////////////////////////
@@ -127,7 +144,7 @@ void Normal_Pro(void)
        if (flag_300ms_ok)
             {//刷新次界面
              flag_300ms_ok = FALSE;
-          	 temp_float = filter_ad_NTC(Get_temp_ad()) - 7;
+          	 temp_float = filter_ad_NTC(Get_temp_ad());
 						 if(FALSE == sleepmode)	
 						  {
 							 Ht1621_Display_area2();
@@ -289,9 +306,8 @@ int main(void)
 	Displaybuf_All_on();  //除LOGO外 全部显示 时间由初始化函数确定
 	//首先把 LOGO 信息 是否显示读取出来
   Init_SYSLOGO_Para();
-  if(FALSE == flag_LOGO)
-	   display_buffer[0] &= (~FLAG_LOGO_0);
-	Update_Display();
+	PowerOnDisplayCheck();
+ 	Update_Display();
 	///////////////////////////////////////////////////////////////////////////			
   i = System_Init();
 	Displaybuf_All_off(); 

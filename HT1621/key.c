@@ -408,11 +408,15 @@ void Key_Rec_Down_Pro(void)
 	      switch(current_menu)
 				{
 				   case MENU_CONFIG_MODE: //称重模式
-						                     current_mode_bak++;
-					                      if(STAT_END == current_mode_bak)
-																 {
-																	current_mode_bak = STAT_WEIGH;
-																 }
+						                     do {
+						                         current_mode_bak++;
+																	   if(STAT_END == current_mode_bak)
+																			 current_mode_bak = STAT_WEIGH;
+																			 
+																	   if(selemode&(1<<(current_mode_bak-0x07)))
+																			 break;
+					                       } while(STAT_WEIGH != current_mode_bak);
+					                     
 																break;												
 					 case MENU_CONFIG_UNIT: //称量单位
 						           	       	current_unit++;
@@ -729,6 +733,11 @@ void	Key_F_Config_Pro(void)
 		                  F_cfg_tmp    = (model_id>>8)&0xffff;
 	                   	break;
 		case STAT_CONFIG: 
+			                current_mode = STAT_CONFIG2; 
+		                  F_cfg_tmp = 1;
+		                  current_menu = 1;
+		                  break;
+	  case STAT_CONFIG2: 
 			                current_mode = STAT_WEIGH; 
 		                  break;
 		default:          current_mode = STAT_INNER;  
@@ -756,8 +765,12 @@ void	Key_F_Zero_Pro(void)
 	else if(STAT_INNER == current_mode)
 	{
 	}
-  else
-  {		
+  else if(STAT_CONFIG2 == current_mode) {
+	    current_menu++;
+		  if(current_menu > 5)
+				  current_menu = 1;
+			
+	} else {		
 	current_menu++;
 	if(MENU_F_CONFIG_END == current_menu)
 		 current_menu = MENU_F_CONFIG_FULL;
@@ -783,7 +796,9 @@ void	Key_F_Zero_Pro(void)
 
 void  Key_F_Print_Pro(void)
 {
-	if(STAT_CONFIG == current_mode) {
+	if(STAT_CONFIG2 == current_mode) {
+		
+	} else if(STAT_CONFIG == current_mode) {
 		 if(MENU_F_CONFIG_REALKG==current_menu) {
          real_g_cfg++;
          if(8==real_g_cfg)
@@ -835,12 +850,50 @@ void	Key_F_Down_Pro(void)
 {//-----
 	if(STAT_WEIGH==current_mode)
 	   return;
+	
 	else if(STAT_INNER==current_mode)
 	 {  
 		motor_pos_flag = 1; 
 	  motor_run_proc(LOAD_POSITION);
 		Factory_Inncal_step = 2;
-	 }	
+	 } else if(STAT_CONFIG2==current_mode) {
+		 
+	   F_cfg_tmp++;
+	   F_cfg_tmp &= 0x01;
+				switch(current_menu) {
+				case 1:
+					     if(0x01 == F_cfg_tmp)
+								 selemode |= MODE_PCS;
+							 else
+								 selemode &= (~MODE_PCS);
+							 break;							 
+				case 2:
+					     if(0x01 == F_cfg_tmp)
+								 selemode |= MODE_DENSITY;
+							 else
+								 selemode &= (~MODE_DENSITY);
+							 break;				
+				case 3:
+					     if(0x01 == F_cfg_tmp)
+								 selemode |= MODE_CHECK;
+							 else
+								 selemode &= (~MODE_CHECK);
+							 break;				
+				case 4:
+					     if(0x01 == F_cfg_tmp)
+								 selemode |= MODE_100;
+							 else
+								 selemode &= (~MODE_100);
+							 break;				
+				case 5:
+					     if(0x01 == F_cfg_tmp)
+								 selemode |= MODE_ANIMAL;
+							 else
+								 selemode &= (~MODE_ANIMAL);
+							 break;				
+				default:break;					
+     	}
+	 } 
 	else 
 	{
 	  if(MENU_F_CONFIG_FULL == current_menu)
@@ -879,6 +932,13 @@ void	Key_F_Confirm_Pro(void) //save
 	Uint8   buf[6];
 	if(STAT_WEIGH==current_mode)
 		return;
+	if(STAT_CONFIG2==current_mode) {
+		 buf[0] =  selemode;
+     buf[1] = 0;
+	   buf[2] = buf[0]+buf[1];
+	   buf[3] = CHECK_DATA; 
+ 		 Write_EEPROM(EEP_MODESEL_ADDR, buf, 4); 
+	}
 	if(STAT_INNER==current_mode)
 	 {
 		if(1 == Factory_Inncal_step) 

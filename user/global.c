@@ -83,6 +83,9 @@
 
 //增加 打印格式选择
  Uint8      uart_format_type;
+ 
+ //mode selection function 
+ Uint8      selemode;
  ///////////////////////////////////////////////////
  //functions 
  //////////////////////////////////////////////////	
@@ -229,7 +232,16 @@ void  Init_SYSLOGO_Para(void)
 		 flag_LOGO = buf[0]&0x01;
 	 else
 		 flag_LOGO = DEFAULT_MACHINE_LOGO;
-  } 	
+  
+	 Read_EEPROM(EEP_MODESEL_ADDR, buf, 4);
+	 for(i=0;i<200;i++){;}   //delay
+	 if((CHECK_DATA==buf[3])&&(buf[2]==buf[1]+buf[0]))
+		 selemode = buf[0];
+	 else
+		 selemode = 0x01;
+	
+	
+	} 	
 
 ///////////////////////////////////////////////////
 //继电器操作 用于双分度切换，备用功能

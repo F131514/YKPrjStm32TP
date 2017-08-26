@@ -70,6 +70,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 //0x90-0x9f   暂时保留
 #define   EEP_UART_ADDR                   0x9C  //配置为打印口，还是连接上位机口
+#define   EEP_MODESEL_ADDR                0xF0  //MODE SELECTION
 
 //////////////////////////////////////////////////////////////////////////////////
 /////内校准天平使用另外一块存储空间
@@ -96,7 +97,7 @@
 #define    EEP_LINCAL2_ADDR11             0xE8    //???
 #define    EEP_LINCAL2_CHECK              0xEC    //
 //测试地址
-#define    EEP_TEST_ADDR                  0xF0    //EEPROM TEST
+#define    EEP_TEST_ADDR                  0xFC    //EEPROM TEST
 //??????????????
 //AT24C01 128Bytes   AT24C08 1024Bytes   AT24C64   8192Bytes   
 //AT24C02 256Bytes   AT24C16 2048Bytes   AT24C128 16384Bytes

@@ -10,7 +10,7 @@
 #define      CHINESE                 0
 #define      ENGLISH                 1
 //是否内校准版本
-#define INNER_CAL_VERSION            1  //???????
+#define INNER_CAL_VERSION            0  //???????
 
 #define DOUBLE_DIVISION              0  //双分度版本
 
@@ -56,10 +56,19 @@
 #define MACHINE_NORMAL_MODE        0    //??????
 #define MACHINE_FACTORY_MODE       1    //????
 
+//
+#define MODE_WEIGH              0x01
+#define MODE_PCS                0x02  
+#define MODE_DENSITY            0x04
+#define MODE_CHECK              0x08
+#define MODE_100                0x10
+#define MODE_ANIMAL             0x20
+
+
 ///////////////////////////////////////////////////////
 //?????????????
 //////////////////////////////////////////////////////
-#define STAT_NULL               0x00
+#define STAT_CONFIG2            0x00
 
 #define STAT_CONFIG             0x01
 #define STAT_CAL_LINE           0x02
@@ -74,6 +83,8 @@
 #define STAT_CHECK              0x0A
 #define STAT_100                0x0B
 #define STAT_ANIMAL             0x0C
+
+
 #define STAT_END                0x0D
 ///////////////////////////////////////工厂模式下增加内码显示
 #define STAT_INNER              0x10
@@ -290,7 +301,8 @@ typedef union
  //add printer function
  extern Uint8       print_busy,Uart_Printer_Flag;
  extern Uint8       uart_format_type;
-
+ 
+ extern Uint8       selemode;
 
 
 

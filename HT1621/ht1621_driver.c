@@ -61,6 +61,7 @@ Uint8 const display_ERR_INFO[]   = {DISP_NULL,DISP_E,DISP_r,DISP_r,DISP_NULL,0,1
 //////////////////////////////////////////////////配置显示菜单
 Uint8 const display_CFG_INFO[]   = {DISP_U, DISP_C,     0,1,DISP_NULL,       0,1}; //用户配置
 Uint8 const display_F_CFG_INFO[] = {DISP_F, DISP_C,     0,1,DISP_NULL,       0,1}; //系统配置
+Uint8 const display_F_CFG2_INFO[] = {DISP_r, DISP_r,    0,1,DISP_NULL,DISP_NULL,1}; //系统配置2
 //////////////////////////////////////////////////配置启动菜单
 Uint8 const display_BOOT_INFO[]  = {DISP_b, DISP_o,DISP_o,DISP_t,DISP_NULL,DISP_NULL,DISP_NULL};
 Uint8 const display_MODEL_INFO[] = {DISP_NULL, DISP_X, 0, 0, 0, 0,  DISP_X};
@@ -1188,6 +1189,20 @@ void Display_F_CFG_Pro(void)
 	  display_buffer[7]  = display_code[i]; 
 	}		
 }
+
+void Display_F_CFG2_Pro(void)
+{
+ // 显示配置的信息
+ 	Uint16 i;
+	Uint8 tmp[10];
+	for(i=1;i<8;i++)
+ 	display_buffer[i] = display_code[display_F_CFG2_INFO[i-1]]; //载入标准格式 
+	////////当前哪个配置项 配置数值
+	display_buffer[4] = display_code[current_menu];
+	i = Get_F_tmp();
+  display_buffer[7] = display_code[i];
+				
+}
 ////////////////////////////////////////////////////////////////////////////////////////////
 void  Display_inner_cal_sub(void)
    {
@@ -1221,9 +1236,12 @@ void Ht1621_F_Display_area1(void)
 			                                                                break;
 			case STAT_INNER:   Display_Inner_code();                        break;        
 			case STAT_CONFIG:  Display_F_CFG_Pro();                         break;
+			case STAT_CONFIG2: Display_F_CFG2_Pro();                        break;									 
 			default:break;						 
 	  }
-   }	
+  }
+
+	
 void Ht1621_F_Display_area3(void)              	//符号位显示
    { //300ms * 6 = 1.8s 
 		static Uint8 cycle_times=0; 
@@ -1246,6 +1264,35 @@ void Ht1621_F_Display_area3(void)              	//符号位显示
 				               if(MENU_F_CONFIG_FULL==current_menu)
 											 display_buffer[8]|=  FLAG_g_8 ; 
 				               break;
+			case STAT_CONFIG2:
+				               display_buffer[12] |=  FLAG_BASIC_12 ;
+			
+			                 if(selemode&MODE_PCS)
+												 display_buffer[12] |=  FLAG_PCS_12 ;
+											 else
+												 display_buffer[12] &=  ~(FLAG_PCS_12) ;
+			
+											 if(selemode&MODE_DENSITY)
+												 display_buffer[12] |=  FLAG_DENSITY_12 ;
+											 else
+												 display_buffer[12] &=  ~(FLAG_DENSITY_12) ;
+
+											 if(selemode&MODE_CHECK)
+												 display_buffer[12] |=  FLAG_CHECK_12 ;
+											 else
+												 display_buffer[12] &=  ~(FLAG_CHECK_12) ;
+											  
+											 if(selemode&MODE_100)
+												 display_buffer[12] |=  FLAG_PERCENT_12 ;
+											 else
+												 display_buffer[12] &=  ~(FLAG_PERCENT_12) ;
+											 
+											 if(selemode&MODE_ANIMAL)
+												 display_buffer[12] |=  FLAG_ANIMAL_12 ;
+											 else
+												 display_buffer[12] &=  ~(FLAG_ANIMAL_12) ;
+				               break;
+											 
 			default:	
 				               break;
 		}			

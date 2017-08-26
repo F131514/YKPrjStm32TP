@@ -24,6 +24,6 @@ extern  void   stable_manual_break(void);
 extern  Uint32 stable_load_zer0(Uint32 weight2);
 extern  void   auto_zer0(Uint32 weight1);
 
-extern  float   filter_ad_NTC(Uint16 ntc_data);
+extern  float  filter_ad_NTC(Uint16 ntc_data);
 
 #endif
