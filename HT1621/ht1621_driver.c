@@ -514,8 +514,9 @@ void Display_normal_main(void)
 												       Display_weight_Data(net_weight,current_unit); //正常显示重量
 													break;
           case STAT_100:
-						              if((weight_compare_100>COMPARE_100_MIN)&&(weight_compare_100<COMPARE_100_MAX))
-													     {
+						              //if((weight_compare_100>COMPARE_100_MIN)&&(weight_compare_100<COMPARE_100_MAX))
+                          if(weight_compare_100>COMPARE_100_MIN)													
+													{
 																compare_100_flag = TRUE;
 																number_100 = (net_weight/weight_compare_100)*100; 
 															  sprintf(tmp,"%08.2f", number_100);
@@ -991,7 +992,7 @@ void Ht1621_Display_area3(void)              	//符号位显示
 		///////////////////////////////////////////////////////
 		display_buffer[0]  = 0;
 	  display_buffer[0] |= FLAG_FENGE_0; 	
-		if(TRUE == flag_LOGO)
+		if(1 == (flag_LOGO&0x01))
     display_buffer[0] |= FLAG_LOGO_0;
 		if(TRUE == stable_flag)
 		 display_buffer[0] |= FLAG_WENDING_0;
@@ -1295,7 +1296,11 @@ void Ht1621_F_Display_area3(void)              	//符号位显示
 											 
 			default:	
 				               break;
-		}			
+		}		
+
+		display_buffer[13] = 0;
+		if(FALSE == positive_flag)
+			display_buffer[13] |= FLAG_NEG_13;		
 	}
     
     

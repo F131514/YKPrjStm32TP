@@ -17,7 +17,7 @@
 #define  DEFAULT_MACHINE_FULL      0xc8 //200.0000     
 #define  DEFAULT_MACHINE_DIV       0x01
 #define  DEFAULT_MACHINE_ID        ((DEFAULT_MACHINE_FULL<<8)+DEFAULT_MACHINE_DIV)
-#define  DEFAULT_MACHINE_LOGO      0x00  //不显示LOGO
+#define  DEFAULT_MACHINE_LOGO      0x00  //不显示LOGO 型号
 #define  DEFAULT_MACHINE_LANG      0x00  //CHINESE
 #define  DEFAULT_MACHINE_REP       0x01  //开启 重复性检查
 #define  DEFAULT_MACHINE_INT       0x01  //开启 整数位跟踪
@@ -28,6 +28,7 @@
 //#define      PREHOT_TIME_CNT        20
 //进入休眠时间
 #define    SLEEP_TIME_CNT         1800
+//#define    SLEEP_TIME_CNT         60
 
 #define  QIAN_DIVISION             0
 #define   WAN_DIVISION             1

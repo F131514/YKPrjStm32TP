@@ -30,7 +30,7 @@ Uint32 const machine_speed[4][3] = {
 
 void PowerOnDisplayCheck(void)
 {
-  if(FALSE == flag_LOGO)
+  if(0 == (flag_LOGO&0x01))
 	   display_buffer[0] &= (~FLAG_LOGO_0);
 
   if(0 == (selemode & MODE_PCS))
@@ -317,9 +317,10 @@ int main(void)
 		 }
 	else
 	   {
-					
-	    Display_Model_Info();    //增加 型号显示功能
-	    Update_Display();
+			if(1 == ((flag_LOGO>>1)&0x01)) {		 
+	        Display_Model_Info();    //增加 型号显示功能
+	        Update_Display();
+			}
 	    i =20;
 	    do
 	    {if(flag_100ms_ok)

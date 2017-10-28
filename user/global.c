@@ -229,7 +229,7 @@ void  Init_SYSLOGO_Para(void)
 	 Read_EEPROM(EEP_SYS_LOGO_ADDR, buf, 4);
 	 for(i=0;i<200;i++){;}   //delay
 	 if((CHECK_DATA==buf[3])&&(buf[2]==buf[1]+buf[0]))
-		 flag_LOGO = buf[0]&0x01;
+		 flag_LOGO = buf[0]&0x03;
 	 else
 		 flag_LOGO = DEFAULT_MACHINE_LOGO;
   

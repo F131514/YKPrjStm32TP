@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\STM32TP.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\STM32TP.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5040049: Last Updated: Sat Aug 26 14:51:28 2017
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5040049: Last Updated: Sat Oct 28 16:22:04 2017
 <BR><P>
 <H3>Maximum Stack Usage =        368 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -538,7 +538,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Zero_Pro
 </UL>
 
-<P><STRONG><a name="[a0]"></a>PowerOnDisplayCheck</STRONG> (Thumb, 84 bytes, Stack size 8 bytes, main.o(.text))
+<P><STRONG><a name="[a0]"></a>PowerOnDisplayCheck</STRONG> (Thumb, 86 bytes, Stack size 8 bytes, main.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = PowerOnDisplayCheck
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -586,7 +586,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[3d]"></a>main</STRONG> (Thumb, 336 bytes, Stack size 8 bytes, main.o(.text))
+<P><STRONG><a name="[3d]"></a>main</STRONG> (Thumb, 344 bytes, Stack size 8 bytes, main.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 224 + Unknown Stack Size
 <LI>Call Chain = main &rArr; Normal_Pro &rArr; Key_Pro &rArr; Key_Print_Pro &rArr; UART_PrintData &rArr; Printer_data &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
@@ -2005,7 +2005,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Display_normal_main
 </UL>
 
-<P><STRONG><a name="[104]"></a>Display_normal_main</STRONG> (Thumb, 920 bytes, Stack size 32 bytes, ht1621_driver.o(.text))
+<P><STRONG><a name="[104]"></a>Display_normal_main</STRONG> (Thumb, 912 bytes, Stack size 32 bytes, ht1621_driver.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 184 + Unknown Stack Size
 <LI>Call Chain = Display_normal_main &rArr; Display_Inner_code &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
@@ -2157,8 +2157,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Factory_Pro
 </UL>
 
-<P><STRONG><a name="[85]"></a>Ht1621_F_Display_area3</STRONG> (Thumb, 162 bytes, Stack size 12 bytes, ht1621_driver.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = Ht1621_F_Display_area3
+<P><STRONG><a name="[85]"></a>Ht1621_F_Display_area3</STRONG> (Thumb, 172 bytes, Stack size 20 bytes, ht1621_driver.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = Ht1621_F_Display_area3
 </UL>
 <BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Factory_Pro
 </UL>

@@ -22,7 +22,7 @@ Uint8 const ANIMAL_TIME[] ={10,10,15,20,30,30};
 //8 LOCK    
 //9 ASD
 //10 REAL_G
-const  Uint8  F_Mode_MAX[] = {12,3,2,2,2,2,2,2,3,2,2}; //每种配置下的最大选择项数目
+const  Uint8  F_Mode_MAX[] = {12,3,4,2,2,2,2,2,3,2,2}; //每种配置下的最大选择项数目
 static Uint8  key_code,key_flag;
 static Uint8  real_g_cfg;       //用于输入真实重量
 //-----------------------------------------------------------------------------   
