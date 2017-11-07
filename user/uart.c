@@ -330,15 +330,14 @@ static void  Printer_TITLE(void)
   UART_PrintChar('0');
   UART_PrintChar(3 + dot_position +0x30);	
  
-	/*
+
   if(CHINESE == flag_language)
 	 {
     Printer_CH_MODE();
     UART_PrintStr("分析天平");
-   }
-  else*/
-	
-  UART_PrintStr("ELECTRONIC BALANCE");
+   } else {
+	  UART_PrintStr("ELECTRONIC BALANCE");
+	 }
   Printer_enter();
   Printer_EN_MODE();
 }
@@ -346,8 +345,8 @@ static void  Printer_TITLE(void)
 static void  Printer_TABLE(void)
 {
   //Uint32 temp_tmp;
-  //Uint8  send_tmp[20];
-  /*///////////////////////////////////////???? 
+  Uint8  send_tmp[20];
+  ////////////////////////////////////////???? 
   if(CHINESE == flag_language)
   {
    Printer_CH_MODE();
@@ -355,7 +354,7 @@ static void  Printer_TABLE(void)
 	 Printer_EN_MODE();
    send_tmp[0]  = ':';
    send_tmp[1]  = ' ';
-	 Printer_CN_MODE();
+	 Printer_CH_MODE();
 	 switch(current_mode)
 	   {
 		  case STAT_PCS:         UART_PrintStr("计数");         break;
@@ -365,10 +364,7 @@ static void  Printer_TABLE(void)
 			case STAT_ANIMAL:      UART_PrintStr("动物称重");     break;
 			default:	             UART_PrintStr("称重");         break;
 	   }		  
-  
-	} 
-  else
-	{*/
+	} else {
 		UART_PrintStr("CURR_MODE: ");
    	switch(current_mode)
 	   {
@@ -379,24 +375,26 @@ static void  Printer_TABLE(void)
 			case STAT_ANIMAL:      UART_PrintStr("ANIMAL_MODE");      break;
 			default:	             UART_PrintStr("WEIGHT");             break;
 	   } 
+	 }
   Printer_enter();
+  Printer_EN_MODE();
 }
 
 static void  Printer_SIGN(void)
 {
   Uint8  send_tmp[20];
   Uint8  i;
-  /*if(CHINESE == flag_language)
+  if(CHINESE == flag_language)
 	{
    Printer_CH_MODE();
    UART_PrintStr("签名");
-  }
-  else*/
+  } else
 	UART_PrintStr("Signature:");
   
-  //Printer_EN_MODE();
+  Printer_EN_MODE();
   //send_tmp[0]  = ':';
-  for(i=1;i<20;i++)
+  
+	for(i=1;i<20;i++)
   send_tmp[i]  = '_';
   send_tmp[15] = 0x00;
   UART_PrintStr(send_tmp);
