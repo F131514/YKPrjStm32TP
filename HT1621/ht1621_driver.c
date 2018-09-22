@@ -1077,11 +1077,10 @@ void Ht1621_Display_area3(void)              	//符号位显示
 											  Display_weight_unit(current_unit);
 			                  break;	
   		case STAT_DENSITY: //
-				                if(0)//当得到密度数据时候应该显示 g/m3
-												{
-												
-												}
-												else
+				              if(6 == density_step)//当得到密度数据时候应该显示 g/m3
+								{
+								display_buffer[8] |= FLAG_md_8;	
+								} else
 				                Display_weight_unit(current_unit); 
 				                break;	
 			default:          break;
@@ -1099,10 +1098,10 @@ void Ht1621_Display_area3(void)              	//符号位显示
 		{
 			case STAT_WEIGH:    display_buffer[12] |= FLAG_BASIC_12;    break;							
 			case STAT_PCS:      display_buffer[12] |= FLAG_PCS_12;      break;
-  		case STAT_DENSITY:  display_buffer[12] |= FLAG_DENSITY_12;  break;	
+  		    case STAT_DENSITY:  display_buffer[12] |= FLAG_DENSITY_12;  break;	
 			case STAT_CHECK:    display_buffer[12] |= FLAG_CHECK_12;    break;							
 			case STAT_100:      display_buffer[12] |= FLAG_PERCENT_12;  break;
-  		case STAT_ANIMAL:   display_buffer[12] |= FLAG_ANIMAL_12;   break;	
+  		    case STAT_ANIMAL:   display_buffer[12] |= FLAG_ANIMAL_12;   break;	
 			default:
 			       break;
 	  }

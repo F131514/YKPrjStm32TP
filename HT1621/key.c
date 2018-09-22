@@ -260,7 +260,7 @@ void Key_Zero_Pro(void)
 			                     }			
 		                     else if((4==density_step)&&(TRUE == stable_flag))
 		                       {
-														 density_step++;
+								 density_step++;
 		                         Cali_density_pro(tmp1,net_weight); //º∆À„√‹∂»
 		                       }
                          else {;}

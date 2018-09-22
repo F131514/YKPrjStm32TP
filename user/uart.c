@@ -416,6 +416,7 @@ static void  Printer_data(void)
   else
   send_tmp[i++] = ' ';
   ///////////////////////////////////////////////////////////////
+	if(WAN_DIVISION == dot_position) {
 	switch(current_mode)
 	{
 		case STAT_PCS:      sprintf(&send_tmp[i],"%8d",   pcs_number);      break;
@@ -426,6 +427,19 @@ static void  Printer_data(void)
 		default:            sprintf(&send_tmp[i],"%8.4f", net_weight);      break;	
 	}
   i+=8;
+	} else {
+	
+	switch(current_mode)
+	{
+		case STAT_PCS:      sprintf(&send_tmp[i],"%7d",   pcs_number);      break;
+		case STAT_DENSITY:  sprintf(&send_tmp[i],"%7.1f", density_data);    break;
+		case STAT_CHECK:    sprintf(&send_tmp[i],"%7.3f", net_weight);      break;
+		case STAT_100:      sprintf(&send_tmp[i],"%7.2f", number_100);      break;
+		case STAT_ANIMAL:   sprintf(&send_tmp[i],"%7.1f", animal_data);     break;
+		default:            sprintf(&send_tmp[i],"%7.3f", net_weight);      break;	
+	}
+  i+=7;
+	}
   send_tmp[i++]  = 0x00;
   UART_PrintStr(send_tmp);
 	//////////////////////////////////¥Ú”°µ•Œª

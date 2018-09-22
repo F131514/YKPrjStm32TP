@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\STM32TP.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\STM32TP.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5040049: Last Updated: Tue Nov 07 23:11:14 2017
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5040049: Last Updated: Sat Sep 22 15:11:10 2018
 <BR><P>
 <H3>Maximum Stack Usage =        368 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -206,7 +206,7 @@ Global Symbols
 <P><STRONG><a name="[195]"></a>__rt_entry_postsh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtentry2.o(.ARM.Collect$$rtentry$$00000009))
 
 <P><STRONG><a name="[3c]"></a>__rt_entry_main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtentry2.o(.ARM.Collect$$rtentry$$0000000D))
-<BR><BR>[Stack]<UL><LI>Max Depth = 224 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 232 + Unknown Stack Size
 <LI>Call Chain = __rt_entry_main &rArr; main &rArr; Normal_Pro &rArr; Key_Pro &rArr; Key_Print_Pro &rArr; UART_PrintData &rArr; Printer_data &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -562,7 +562,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[88]"></a>Normal_Pro</STRONG> (Thumb, 280 bytes, Stack size 0 bytes, main.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 216 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 224 + Unknown Stack Size
 <LI>Call Chain = Normal_Pro &rArr; Key_Pro &rArr; Key_Print_Pro &rArr; UART_PrintData &rArr; Printer_data &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;filter_ad_NTC
@@ -587,7 +587,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[3d]"></a>main</STRONG> (Thumb, 344 bytes, Stack size 8 bytes, main.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 224 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 232 + Unknown Stack Size
 <LI>Call Chain = main &rArr; Normal_Pro &rArr; Key_Pro &rArr; Key_Print_Pro &rArr; UART_PrintData &rArr; Printer_data &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Update_Display
@@ -755,8 +755,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_PrintData
 </UL>
 
-<P><STRONG><a name="[bf]"></a>UART_PrintData</STRONG> (Thumb, 96 bytes, Stack size 32 bytes, uart.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 192 + Unknown Stack Size
+<P><STRONG><a name="[bf]"></a>UART_PrintData</STRONG> (Thumb, 412 bytes, Stack size 32 bytes, uart.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 200 + Unknown Stack Size
 <LI>Call Chain = UART_PrintData &rArr; Printer_data &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Printer_Init
@@ -2115,7 +2115,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ht1621_Display_area3
 </UL>
 
-<P><STRONG><a name="[8e]"></a>Ht1621_Display_area3</STRONG> (Thumb, 542 bytes, Stack size 20 bytes, ht1621_driver.o(.text))
+<P><STRONG><a name="[8e]"></a>Ht1621_Display_area3</STRONG> (Thumb, 556 bytes, Stack size 20 bytes, ht1621_driver.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = Ht1621_Display_area3 &rArr; Display_weight_unit &rArr; __ARM_common_switch8
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_switch8
@@ -2124,7 +2124,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Normal_Pro
 </UL>
 
-<P><STRONG><a name="[111]"></a>Display_F_CFG_Pro</STRONG> (Thumb, 404 bytes, Stack size 32 bytes, ht1621_driver.o(.text))
+<P><STRONG><a name="[111]"></a>Display_F_CFG_Pro</STRONG> (Thumb, 394 bytes, Stack size 32 bytes, ht1621_driver.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 160 + Unknown Stack Size
 <LI>Call Chain = Display_F_CFG_Pro &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
@@ -2136,7 +2136,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Ht1621_F_Display_area1
 </UL>
 
-<P><STRONG><a name="[113]"></a>Display_F_CFG2_Pro</STRONG> (Thumb, 50 bytes, Stack size 16 bytes, ht1621_driver.o(.text))
+<P><STRONG><a name="[113]"></a>Display_F_CFG2_Pro</STRONG> (Thumb, 52 bytes, Stack size 16 bytes, ht1621_driver.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = Display_F_CFG2_Pro
 </UL>
 <BR>[Calls]<UL><LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_F_tmp
@@ -2223,7 +2223,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[118]"></a>Key_Print_Pro</STRONG> (Thumb, 116 bytes, Stack size 16 bytes, key.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 208 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 216 + Unknown Stack Size
 <LI>Call Chain = Key_Print_Pro &rArr; UART_PrintData &rArr; Printer_data &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_PrintData
@@ -2281,7 +2281,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[89]"></a>Key_Pro</STRONG> (Thumb, 126 bytes, Stack size 8 bytes, key.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 216 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 224 + Unknown Stack Size
 <LI>Call Chain = Key_Pro &rArr; Key_Print_Pro &rArr; UART_PrintData &rArr; Printer_data &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_switch8
@@ -3317,8 +3317,8 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_PrintData
 </UL>
 
-<P><STRONG><a name="[bd]"></a>Printer_data</STRONG> (Thumb, 210 bytes, Stack size 32 bytes, uart.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 160 + Unknown Stack Size
+<P><STRONG><a name="[bd]"></a>Printer_data</STRONG> (Thumb, 310 bytes, Stack size 40 bytes, uart.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 168 + Unknown Stack Size
 <LI>Call Chain = Printer_data &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_PrintStr
@@ -3341,7 +3341,7 @@ Local Symbols
 <LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Printer_TABLE
 </UL>
 
-<P><STRONG><a name="[bc]"></a>Printer_EN_MODE</STRONG> (Thumb, 304 bytes, Stack size 4 bytes, uart.o(.text))
+<P><STRONG><a name="[bc]"></a>Printer_EN_MODE</STRONG> (Thumb, 16 bytes, Stack size 4 bytes, uart.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = Printer_EN_MODE
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_PrintChar
