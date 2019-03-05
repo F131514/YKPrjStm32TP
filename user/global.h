@@ -39,8 +39,8 @@
 #define   INNER_CODE_STEP_MIN       5
 #define   INNER_CODE_STEP_DEF      18
 
-#define   ZER0_CODE_MIN            3000000
-#define   ZER0_CODE_MAX            12000000
+#define   ZER0_CODE_MIN            1000000
+#define   ZER0_CODE_MAX            10000000
 #define   USERCAL_CODE_MIN         15000000
 #define   USERCAL_CODE_MAX         60000000
 

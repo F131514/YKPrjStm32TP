@@ -221,6 +221,7 @@ void  UART_SendData_NJ_format1(void)
 	send_tmp[0]  = 0x2d;
 	
 	send_tmp[1]  = 0x20;
+/*	
 	send_tmp[2]  = 0x20;
 	send_tmp[3]  = 0x20;
 	send_tmp[4]  = 0x20;
@@ -229,8 +230,13 @@ void  UART_SendData_NJ_format1(void)
 	send_tmp[7]  = 0x20;
 	send_tmp[8]  = 0x20;
 	send_tmp[9]  = 0x20;
-	
-	sprintf(&send_tmp[2],"%8.4f", net_weight);
+*/
+	if(WAN_DIVISION == dot_position)
+		sprintf(&send_tmp[2],"%8.4f", net_weight);
+	else {
+		sprintf(&send_tmp[2],"%7.3f", net_weight);
+		send_tmp[9]  = 0x20;
+	}
 	
 	send_tmp[10] = 0x20;
 	send_tmp[11] = 0x67;
@@ -254,7 +260,7 @@ void  UART_SendData_NJ_format2(void)
 	send_tmp[3]  = 0x2b;
 	else
 	send_tmp[3]  = 0x2d;
-	
+/*	
 	send_tmp[4]  = 0x20;
 	send_tmp[5]  = 0x20;
 	send_tmp[6]  = 0x20;
@@ -263,7 +269,14 @@ void  UART_SendData_NJ_format2(void)
 	send_tmp[9]  = 0x20;	
 	send_tmp[10] = 0x20;
 	send_tmp[11] = 0x20;	
-	sprintf(&send_tmp[4],"%8.4f", net_weight);
+*/
+	
+	if(WAN_DIVISION == dot_position)
+		sprintf(&send_tmp[4],"%8.4f", net_weight);
+	else {
+		sprintf(&send_tmp[4],"%7.3f", net_weight);
+		send_tmp[11] = 0x20;
+	}		
 	/*
 	switch(current_unit)
 	{
@@ -407,9 +420,16 @@ static void  Printer_data(void)
 {
   Uint8  i;
   Uint8  send_tmp[20];
-  i = 0;
-  Printer_EN_MODE();
+
+  if(CHINESE == flag_language) {
+	Printer_CH_MODE();
+	UART_PrintStr("当前数据: ");
+  } else {
+  	Printer_EN_MODE();
 	UART_PrintStr("CURR_DATA: ");
+  }
+  
+  i = 0;
   ///////////////////////////////////////////////////////////////
 	if(FALSE == positive_flag)
   send_tmp[i++] = '-';
