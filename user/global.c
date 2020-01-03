@@ -1675,17 +1675,20 @@ void  Res_factory_pro(void)
 static float SOLID_v;
 void Cali_density_pro(float w1,float w2)
 {   //根据第一次和第二次测量的重量 计算密度
- if(1==density_mode_index)
-	 {//固体密度计算公式 (w1/(w1-w2))*(p0-Pk) + p1 //p0:辅助液体密度 p1空气密度 为常数
-    density_data = (w1/(w1-w2))*(DENSITY_STAND_LIQUID[liquid_sel_index]-P_air) + P_air; //固体密度
-		SOLID_v      = ((w1-w2)/(DENSITY_STAND_LIQUID[liquid_sel_index]-P_air)) * C_f_comp; //固体体积
-   } 
- else if(2==density_mode_index)
-   {//液体密度计算公式 ((w1-w2)/V)*a + p1 //a:空气浮力校准因子为常数. V:下垂体体积
+	if(1==density_mode_index) {//固体密度计算公式 (w1/(w1-w2))*(p0-Pk) + p1 //p0:辅助液体密度 p1空气密度 为常数
+		if(1 == positive_flag)
+			density_data = (w1/(w1-w2))*(DENSITY_STAND_LIQUID[liquid_sel_index]-P_air) + P_air; //固体密度
+		else 
+			density_data = (w1/(w1+w2))*(DENSITY_STAND_LIQUID[liquid_sel_index]-P_air) + P_air;
+		//SOLID_v      = ((w1-w2)/(DENSITY_STAND_LIQUID[liquid_sel_index]-P_air)) * C_f_comp; //固体体积
+	}else if(2==density_mode_index) {//液体密度计算公式 ((w1-w2)/V)*a + p1 //a:空气浮力校准因子为常数. V:下垂体体积
 		//已知 下垂体密度 重量 可以计算出该固体的体积
-		density_data = ((w1-w2)/(w1/DENSITY_STAND_SOLID[solid_sel_index]))*C_f_comp + P_air; 
-   }
- else 
-    density_data = 88888.88;	 
+		if(1 == positive_flag)
+			density_data = ((w1-w2)/(w1/DENSITY_STAND_SOLID[solid_sel_index]))*C_f_comp + P_air;
+	   else
+			density_data = ((w1+w2)/(w1/DENSITY_STAND_SOLID[solid_sel_index]))*C_f_comp + P_air;  
+	}else {
+		density_data = 88888.88;	 
+	}
 }	
  
